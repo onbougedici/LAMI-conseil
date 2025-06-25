@@ -17,6 +17,13 @@
       color: white;
       padding: 2rem 1rem;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    header.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     header h1 {
       margin: 0;
@@ -37,6 +44,13 @@
       top: 0;
       z-index: 1000;
       flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    }
+    nav.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     nav a {
       text-decoration: none;
@@ -44,11 +58,24 @@
       font-weight: 600;
       font-size: 1rem;
       padding: 0.3rem 0.6rem;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover {
+      color: #4b3621;
+      border-bottom: 2px solid #6e4c2f;
     }
     section {
       max-width: 1000px;
       margin: 3rem auto;
       padding: 0 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     h2 {
       color: #6e4c2f;
@@ -65,10 +92,12 @@
       border-radius: 10px;
       padding: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: default;
     }
     .service-card:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
     }
     .service-card h3 {
       margin-top: 0;
@@ -83,10 +112,14 @@
       border-radius: 6px;
       margin-top: 1rem;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      border: none;
     }
-    .button:hover {
+    .button:hover, .button:focus {
       background-color: #5a3d26;
+      transform: scale(1.05);
+      outline: none;
     }
     form input, form textarea {
       width: 100%;
@@ -97,6 +130,11 @@
       border-radius: 4px;
       font-size: 1rem;
       font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #6e4c2f;
+      outline: none;
     }
     form button {
       background-color: #6e4c2f;
@@ -107,10 +145,12 @@
       cursor: pointer;
       font-size: 1rem;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
-    form button:hover {
+    form button:hover, form button:focus {
       background-color: #5a3d26;
+      transform: scale(1.05);
+      outline: none;
     }
     footer {
       background: #6e4c2f;
@@ -132,14 +172,19 @@
       justify-content: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       z-index: 999;
+      animation: bounce 2.5s infinite;
       transition: transform 0.3s ease;
     }
     .whatsapp-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
     .whatsapp-button img {
       width: 32px;
       height: 32px;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
     /* Témoignages */
     .testimonials {
@@ -156,6 +201,13 @@
       font-style: italic;
       color: #555;
       position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .testimonial-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .testimonial-card::before {
       content: "“";
@@ -209,6 +261,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>LAMI Conseil</h1>
     <p>Simplifiez vos démarches administratives et concentrez-vous sur l'essentiel</p>
@@ -218,38 +271,37 @@
   <nav>
     <a href="#services">Services</a>
     <a href="#avantages">Avantages</a>
-    <a href="#tarifs">Tarifs</a>
     <a href="#temoignages">Témoignages</a>
     <a href="#contact">Contact</a>
   </nav>
-
-  <section id="presentation">
-    <h2>À propos de LAMI Conseil</h2>
-    <p>LAMI Conseil est une structure spécialisée dans l’accompagnement administratif et comptable des entrepreneurs, indépendants et TPE. Notre mission : vous faire gagner du temps, de la clarté et de la sérénité dans vos démarches. Nous vous guidons pas à pas, avec des outils simples, une approche humaine et des conseils concrets adaptés à votre situation.</p>
-  </section>
 
   <section id="services">
     <h2>Nos services</h2>
     <div class="services">
       <div class="service-card">
         <h3>Création auto-entreprise</h3>
-        <p>Déclaration, ACRE, conseils personnalisés</p>
+        <p>Déclaration, ACRE, conseils personnalisés pour bien démarrer.</p>
+        <strong>À partir de 79 €</strong>
       </div>
       <div class="service-card">
         <h3>Assistance administrative</h3>
-        <p>Classement, relances, organisation au quotidien</p>
+        <p>Gestion, classement, relances, organisation simplifiée.</p>
+        <strong>39 €/mois</strong>
       </div>
       <div class="service-card">
-        <h3>Aide comptable</h3>
-        <p>Préparation des documents, organisation des pièces, tableaux de bord</p>
+        <h3>Aide comptable freelance</h3>
+        <p>Organisation des pièces, tableaux Excel, conseils outils.</p>
+        <strong>Sur devis</strong>
       </div>
       <div class="service-card">
         <h3>Business plan & prévisionnel</h3>
-        <p>Rédaction claire pour financement ou Pôle emploi</p>
+        <p>Accompagnement pour financement ou Pôle emploi.</p>
+        <strong>À partir de 129 €</strong>
       </div>
       <div class="service-card">
-        <h3>Déclaration de chiffre d'affaires</h3>
-        <p>Accompagnement auto-entrepreneurs</p>
+        <h3>Déclaration CA</h3>
+        <p>Aide dédiée aux auto-entrepreneurs.</p>
+        <strong>19 €</strong>
       </div>
     </div>
   </section>
@@ -257,71 +309,74 @@
   <section id="avantages">
     <h2>Pourquoi choisir LAMI Conseil ?</h2>
     <ul>
-      <li>✔ Accompagnement humain, clair et réactif</li>
-      <li>✔ Services 100% en ligne ou en visio</li>
-      <li>✔ Tarifs accessibles, sans engagement caché</li>
-      <li>✔ Conseils adaptés à votre niveau d’avancement</li>
+      <li>🎓 Diplômés Bac+5 en comptabilité</li>
+      <li>✅ Accompagnement humain, clair et réactif</li>
+      <li>💼 Expérience concrète en création et gestion d'entreprises</li>
+      <li>🔍 100% en ligne ou en visio selon vos besoins</li>
     </ul>
   </section>
 
-  <section id="tarifs">
-    <h2>Tarifs</h2>
-    <table>
-      <thead>
-        <tr><th>Service</th><th>Prix</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Création auto-entreprise</td><td>79 €</td></tr>
-        <tr><td>Assistance administrative</td><td>39 €/mois</td></tr>
-        <tr><td>Aide comptable</td><td>Sur devis</td></tr>
-        <tr><td>Business plan & prévisionnel</td><td>À partir de 129 €</td></tr>
-        <tr><td>Déclaration de chiffre d'affaires</td><td>19 €</td></tr>
-      </tbody>
-    </table>
-  </section>
-
   <section id="temoignages">
-    <h2>Témoignages</h2>
+    <h2>Témoignages clients</h2>
     <div class="testimonials">
       <div class="testimonial-card">
-        <p>Grâce à LAMI Conseil, j’ai pu enfin organiser ma comptabilité sans stress et gagner un temps précieux. Le service est clair, humain et très efficace.</p>
-        <div class="testimonial-author">– Marie D.</div>
+        <p>“Un service impeccable, à l’écoute et très professionnel. J’ai pu lancer mon activité en toute sérénité.”</p>
+        <p class="testimonial-author">— Julie M.</p>
       </div>
       <div class="testimonial-card">
-        <p>Un accompagnement personnalisé et réactif qui m’a permis de créer mon auto-entreprise sereinement. Je recommande vivement !</p>
-        <div class="testimonial-author">– Julien T.</div>
+        <p>“L’accompagnement personnalisé m’a beaucoup aidé à gérer mes démarches administratives. Merci !”</p>
+        <p class="testimonial-author">— Karim L.</p>
       </div>
       <div class="testimonial-card">
-        <p>Des conseils simples et adaptés à ma situation. Le suivi en visio est un vrai plus pour comprendre toutes les étapes.</p>
-        <div class="testimonial-author">– Sophie L.</div>
+        <p>“Réactif et clair, un vrai partenaire pour mon entreprise. Je recommande sans hésiter.”</p>
+        <p class="testimonial-author">— Sophie D.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <form action="#" method="post">
-      <label for="name">Nom</label>
+    <h2>Contactez-nous</h2>
+    <form action="#" method="post" novalidate>
+      <label for="name">Nom :</label>
       <input type="text" id="name" name="name" required />
-
-      <label for="email">Email</label>
+      
+      <label for="email">Email :</label>
       <input type="email" id="email" name="email" required />
-
-      <label for="message">Message</label>
+      
+      <label for="message">Message :</label>
       <textarea id="message" name="message" rows="5"></textarea>
-
-      <button type="submit">Envoyer</button>
+      
+      <button type="submit" class="button">Envoyer</button>
     </form>
-    <p>📲 Ou contactez-moi sur WhatsApp : <a href="https://wa.me/33651323494" target="_blank">Cliquer ici</a></p>
   </section>
 
   <footer>
     &copy; 2025 LAMI Conseil – Tous droits réservés | Mentions légales sur demande
   </footer>
 
-  <a class="whatsapp-button" href="https://wa.me/33651323494" target="_blank" aria-label="Contact WhatsApp">
+  <a href="https://wa.me/33651323494" target="_blank" aria-label="Contact WhatsApp" class="whatsapp-button">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
+
+  <script>
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll('header, nav, section, .testimonial-card');
+    const options = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
 </body>
 </html>
+
 
