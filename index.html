@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LAMI Conseil – Simplifiez vos démarches</title>
   <style>
     body {
@@ -10,9 +10,10 @@
       margin: 0;
       background-color: #f7f9fc;
       color: #333;
+      line-height: 1.6;
     }
     header {
-      background-color: #1a73e8;
+      background-color: #6e4c2f;
       color: white;
       padding: 2rem 1rem;
       text-align: center;
@@ -35,11 +36,14 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
-      color: #1a73e8;
+      color: #6e4c2f;
       font-weight: 600;
+      font-size: 1rem;
+      padding: 0.3rem 0.6rem;
     }
     section {
       max-width: 1000px;
@@ -47,8 +51,9 @@
       padding: 0 1rem;
     }
     h2 {
-      color: #1a73e8;
+      color: #6e4c2f;
       margin-bottom: 1rem;
+      font-size: 2rem;
     }
     .services {
       display: grid;
@@ -60,18 +65,28 @@
       border-radius: 10px;
       padding: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
     .service-card h3 {
       margin-top: 0;
+      color: #4b3621;
     }
     .button {
       display: inline-block;
-      background: #1a73e8;
+      background: #6e4c2f;
       color: white;
       padding: 0.8rem 1.5rem;
       text-decoration: none;
       border-radius: 6px;
       margin-top: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #5a3d26;
     }
     form input, form textarea {
       width: 100%;
@@ -80,20 +95,29 @@
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
     }
     form button {
-      background-color: #1a73e8;
+      background-color: #6e4c2f;
       color: white;
       border: none;
       padding: 0.7rem 1.5rem;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #5a3d26;
     }
     footer {
-      background: #1a73e8;
+      background: #6e4c2f;
       color: white;
       text-align: center;
       padding: 1rem;
+      font-size: 0.9rem;
     }
     .whatsapp-button {
       position: fixed;
@@ -108,10 +132,79 @@
       justify-content: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       z-index: 999;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.1);
     }
     .whatsapp-button img {
       width: 32px;
       height: 32px;
+    }
+    /* Témoignages */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 1.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-style: italic;
+      color: #555;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: "“";
+      font-size: 3rem;
+      color: #6e4c2f;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-weight: bold;
+      font-family: serif;
+    }
+    .testimonial-author {
+      margin-top: 1.2rem;
+      font-weight: 700;
+      font-style: normal;
+      color: #6e4c2f;
+      text-align: right;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      nav {
+        gap: 1rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+      }
+      .button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      form input, form textarea {
+        font-size: 0.9rem;
+      }
+      form button {
+        font-size: 0.9rem;
+      }
+      section {
+        margin: 2rem 0.5rem;
+        padding: 0;
+      }
     }
   </style>
 </head>
@@ -126,6 +219,7 @@
     <a href="#services">Services</a>
     <a href="#avantages">Avantages</a>
     <a href="#tarifs">Tarifs</a>
+    <a href="#temoignages">Témoignages</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -173,13 +267,35 @@
   <section id="tarifs">
     <h2>Tarifs</h2>
     <table>
-      <tr><th>Service</th><th>Prix</th></tr>
-      <tr><td>Création auto-entreprise</td><td>79 €</td></tr>
-      <tr><td>Assistance administrative</td><td>39 €/mois</td></tr>
-      <tr><td>Aide comptable</td><td>Sur devis</td></tr>
-      <tr><td>Business plan & prévisionnel</td><td>À partir de 129 €</td></tr>
-      <tr><td>Déclaration de chiffre d'affaires</td><td>19 €</td></tr>
+      <thead>
+        <tr><th>Service</th><th>Prix</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Création auto-entreprise</td><td>79 €</td></tr>
+        <tr><td>Assistance administrative</td><td>39 €/mois</td></tr>
+        <tr><td>Aide comptable</td><td>Sur devis</td></tr>
+        <tr><td>Business plan & prévisionnel</td><td>À partir de 129 €</td></tr>
+        <tr><td>Déclaration de chiffre d'affaires</td><td>19 €</td></tr>
+      </tbody>
     </table>
+  </section>
+
+  <section id="temoignages">
+    <h2>Témoignages</h2>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <p>Grâce à LAMI Conseil, j’ai pu enfin organiser ma comptabilité sans stress et gagner un temps précieux. Le service est clair, humain et très efficace.</p>
+        <div class="testimonial-author">– Marie D.</div>
+      </div>
+      <div class="testimonial-card">
+        <p>Un accompagnement personnalisé et réactif qui m’a permis de créer mon auto-entreprise sereinement. Je recommande vivement !</p>
+        <div class="testimonial-author">– Julien T.</div>
+      </div>
+      <div class="testimonial-card">
+        <p>Des conseils simples et adaptés à ma situation. Le suivi en visio est un vrai plus pour comprendre toutes les étapes.</p>
+        <div class="testimonial-author">– Sophie L.</div>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
@@ -203,8 +319,9 @@
     &copy; 2025 LAMI Conseil – Tous droits réservés | Mentions légales sur demande
   </footer>
 
-  <a class="whatsapp-button" href="https://wa.me/33651323494" target="_blank">
+  <a class="whatsapp-button" href="https://wa.me/33651323494" target="_blank" aria-label="Contact WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
 </body>
 </html>
+
