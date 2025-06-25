@@ -566,6 +566,16 @@
       alert('Erreur réseau.');
     });
   });
+    <script>
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("open");
+      const expanded = item.getAttribute("aria-expanded") === "true";
+      item.setAttribute("aria-expanded", !expanded);
+    });
+  });
 </script>
 </body>
 </html>
