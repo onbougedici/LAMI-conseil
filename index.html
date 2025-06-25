@@ -337,6 +337,25 @@
     <p>Simplifiez votre administratif, concentrez-vous sur votre activité</p>
     <header class="header">
   <img src="conseil.png" alt="LAMI Conseil" class="header-image" />
+      .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f9f9f9; /* ou #fff, ou transparent selon ton design */
+}
+
+.header-image {
+  max-width: 100%;
+  height: auto;
+  width: 600px; /* largeur max sur desktop */
+}
+
+@media (max-width: 768px) {
+  .header-image {
+    width: 100%;
+  }
+}
 </header>
   </header>
 
