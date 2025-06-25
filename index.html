@@ -3,380 +3,518 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LAMI Conseil – Simplifiez vos démarches</title>
+  <title>LAMI Conseil – Aide administrative et comptable</title>
+  <meta name="description" content="LAMI Conseil accompagne les entrepreneurs avec des services administratifs et comptables personnalisés, 100% en ligne." />
+  <meta name="keywords" content="comptabilité, administratif, entrepreneurs, création auto-entreprise, business plan" />
+  <meta name="author" content="LAMI Conseil" />
+  <link rel="canonical" href="https://lamiconseil.fr/" />
   <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background-color: #f7f9fc;
-      color: #333;
+      background: #f6f1ec;
+      color: #3a2c24;
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
-      background-color: #6e4c2f;
-      color: white;
+      background-color: #6a503a; /* marron sobre */
+      color: #f6f1ec;
       padding: 2rem 1rem;
       text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    header.visible {
-      opacity: 1;
-      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
     header h1 {
       margin: 0;
       font-size: 2.5rem;
+      letter-spacing: 1px;
     }
     header p {
+      margin: 0.5rem 0 1rem;
+      font-weight: 300;
       font-size: 1.2rem;
-      margin-top: 0.5rem;
     }
     nav {
-      background-color: #ffffff;
-      padding: 1rem;
+      background: #5b452e;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 1rem 0;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
-    }
-    nav.visible {
-      opacity: 1;
-      transform: translateY(0);
+      font-size: 1rem;
     }
     nav a {
+      color: #f6f1ec;
       text-decoration: none;
-      color: #6e4c2f;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.3rem 0.6rem;
-      transition: color 0.3s ease, border-bottom 0.3s ease;
-      border-bottom: 2px solid transparent;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
-    nav a:hover {
-      color: #4b3621;
-      border-bottom: 2px solid #6e4c2f;
+    nav a:hover,
+    nav a:focus {
+      background: #8c6e4b;
+      outline: none;
     }
-    section {
-      max-width: 1000px;
-      margin: 3rem auto;
+    main {
+      flex-grow: 1;
+      max-width: 960px;
+      margin: 2rem auto;
       padding: 0 1rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      width: 100%;
     }
     h2 {
-      color: #6e4c2f;
+      color: #6a503a;
+      font-weight: 700;
       margin-bottom: 1rem;
-      font-size: 2rem;
+      border-bottom: 3px solid #8c6e4b;
+      padding-bottom: 0.3rem;
     }
+    /* Services */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 1.5rem;
     }
     .service-card {
       background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgb(106 80 58 / 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
     }
-    .service-card:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      transform: translateY(-5px);
+    .service-card:hover,
+    .service-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgb(106 80 58 / 0.2);
+      outline: none;
     }
     .service-card h3 {
       margin-top: 0;
-      color: #4b3621;
+      color: #6a503a;
+      font-size: 1.25rem;
     }
-    .button {
-      display: inline-block;
-      background: #6e4c2f;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 1rem;
-      font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      cursor: pointer;
-      border: none;
+    .service-card strong {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      color: #8c6e4b;
     }
-    .button:hover, .button:focus {
-      background-color: #5a3d26;
-      transform: scale(1.05);
-      outline: none;
+    /* Pourquoi choisir */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 600px;
     }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.3s ease;
+    ul li {
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      position: relative;
+      padding-left: 2rem;
     }
-    form input:focus, form textarea:focus {
-      border-color: #6e4c2f;
-      outline: none;
-    }
-    form button {
-      background-color: #6e4c2f;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    form button:hover, form button:focus {
-      background-color: #5a3d26;
-      transform: scale(1.05);
-      outline: none;
-    }
-    footer {
-      background: #6e4c2f;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background-color: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 999;
-      animation: bounce 2.5s infinite;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-button:hover {
-      transform: scale(1.15);
-    }
-    .whatsapp-button img {
-      width: 32px;
-      height: 32px;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    ul li::before {
+      content: '✔️';
+      position: absolute;
+      left: 0;
+      top: 0;
     }
     /* Témoignages */
     .testimonials {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
     }
     .testimonial-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem 1.5rem 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: #fff;
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(106 80 58 / 0.1);
       font-style: italic;
-      color: #555;
-      position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
+      color: #5a4a3d;
+      transition: box-shadow 0.3s ease;
     }
-    .testimonial-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .testimonial-card::before {
-      content: "“";
-      font-size: 3rem;
-      color: #6e4c2f;
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      font-weight: bold;
-      font-family: serif;
+    .testimonial-card:hover,
+    .testimonial-card:focus-within {
+      box-shadow: 0 6px 18px rgb(106 80 58 / 0.2);
+      outline: none;
     }
     .testimonial-author {
-      margin-top: 1.2rem;
-      font-weight: 700;
-      font-style: normal;
-      color: #6e4c2f;
+      margin-top: 1rem;
       text-align: right;
+      font-style: normal;
+      font-weight: 600;
+      color: #6a503a;
+    }
+    /* Contact Form */
+    form {
+      max-width: 600px;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgb(106 80 58 / 0.1);
+      margin-bottom: 3rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      margin-top: 1rem;
+      color: #6a503a;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #bba77e;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #6a503a;
+      outline: none;
+    }
+    button.button {
+      background-color: #6a503a;
+      color: #f6f1ec;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+    button.button:hover,
+    button.button:focus {
+      background-color: #8c6e4b;
+      outline: none;
+    }
+    /* FAQ */
+    .faq-item {
+      background: #fff;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgb(106 80 58 / 0.07);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+    .faq-item:hover,
+    .faq-item:focus-within {
+      box-shadow: 0 6px 18px rgb(106 80 58 / 0.15);
+      outline: none;
+    }
+    .faq-question {
+      background: #8c6e4b;
+      color: #f6f1ec;
+      padding: 1rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 1rem 1.5rem;
+      display: none;
+      line-height: 1.5;
+      color: #3a2c24;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    .faq-arrow {
+      transition: transform 0.3s ease;
+      font-weight: 900;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(45deg);
+    }
+    /* Blog */
+    .blog-posts {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 960px;
+    }
+    .blog-post {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgb(106 80 58 / 0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .blog-post:hover,
+    .blog-post:focus-within {
+      box-shadow: 0 6px 20px rgb(106 80 58 / 0.2);
+      outline: none;
+    }
+    .blog-post h3 {
+      margin-top: 0;
+      color: #6a503a;
+    }
+    .blog-post p {
+      color: #5a4a3d;
+    }
+    .blog-post time {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #8c6e4b;
+    }
+    /* Footer */
+    footer {
+      background: #5b452e;
+      color: #f6f1ec;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    /* WhatsApp button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+    .whatsapp-button:hover,
+    .whatsapp-button:focus {
+      background-color: #1ebe57;
+      outline: none;
+    }
+    .whatsapp-button img {
+      width: 28px;
+      height: 28px;
     }
     /* Responsive */
     @media (max-width: 600px) {
+      nav {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
       header h1 {
         font-size: 1.8rem;
       }
       header p {
         font-size: 1rem;
       }
-      h2 {
-        font-size: 1.5rem;
+      .service-card, .testimonial-card, .blog-post {
+        padding: 1rem;
       }
-      nav {
-        gap: 1rem;
-      }
-      nav a {
-        font-size: 0.9rem;
-      }
-      .button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-      }
-      form input, form textarea {
-        font-size: 0.9rem;
-      }
-      form button {
-        font-size: 0.9rem;
-      }
-      section {
-        margin: 2rem 0.5rem;
-        padding: 0;
+      form {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>LAMI Conseil</h1>
-    <p>Simplifiez vos démarches administratives et concentrez-vous sur l'essentiel</p>
-    <a href="#contact" class="button">Demander un devis</a>
+    <p>Accompagnement administratif et comptable personnalisé pour entrepreneurs exigeants</p>
   </header>
 
   <nav>
     <a href="#services">Services</a>
-    <a href="#avantages">Avantages</a>
+    <a href="#avantages">Pourquoi choisir</a>
+    <a href="#faq">FAQ</a>
     <a href="#temoignages">Témoignages</a>
+    <a href="#blog">Actualités</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="services">
-    <h2>Nos services</h2>
-    <div class="services">
-      <div class="service-card">
-        <h3>Création auto-entreprise</h3>
-        <p>Déclaration, ACRE, conseils personnalisés pour bien démarrer.</p>
-        <strong>À partir de 79 €</strong>
+  <main>
+    <section id="services" tabindex="0">
+      <h2>Nos services</h2>
+      <div class="services">
+        <div class="service-card" tabindex="0">
+          <h3>Création auto-entreprise</h3>
+          <p>Déclaration, ACRE, conseils personnalisés pour bien démarrer.</p>
+          <strong>À partir de 79 €</strong>
+        </div>
+        <div class="service-card" tabindex="0">
+          <h3>Assistance administrative</h3>
+          <p>Gestion, classement, relances, organisation simplifiée.</p>
+          <strong>39 €/mois</strong>
+        </div>
+        <div class="service-card" tabindex="0">
+          <h3>Aide comptable freelance</h3>
+          <p>Organisation des pièces, tableaux Excel, conseils outils.</p>
+          <strong>Sur devis</strong>
+        </div>
+        <div class="service-card" tabindex="0">
+          <h3>Business plan & prévisionnel</h3>
+          <p>Accompagnement pour financement ou Pôle emploi.</p>
+          <strong>À partir de 129 €</strong>
+        </div>
+        <div class="service-card" tabindex="0">
+          <h3>Déclaration CA</h3>
+          <p>Aide dédiée aux auto-entrepreneurs.</p>
+          <strong>19 €</strong>
+        </div>
       </div>
-      <div class="service-card">
-        <h3>Assistance administrative</h3>
-        <p>Gestion, classement, relances, organisation simplifiée.</p>
-        <strong>39 €/mois</strong>
-      </div>
-      <div class="service-card">
-        <h3>Aide comptable freelance</h3>
-        <p>Organisation des pièces, tableaux Excel, conseils outils.</p>
-        <strong>Sur devis</strong>
-      </div>
-      <div class="service-card">
-        <h3>Business plan & prévisionnel</h3>
-        <p>Accompagnement pour financement ou Pôle emploi.</p>
-        <strong>À partir de 129 €</strong>
-      </div>
-      <div class="service-card">
-        <h3>Déclaration CA</h3>
-        <p>Aide dédiée aux auto-entrepreneurs.</p>
-        <strong>19 €</strong>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="avantages">
-    <h2>Pourquoi choisir LAMI Conseil ?</h2>
-    <ul>
-      <li>🎓 Diplômés Bac+5 en comptabilité</li>
-      <li>✅ Accompagnement humain, clair et réactif</li>
-      <li>💼 Expérience concrète en création et gestion d'entreprises</li>
-      <li>🔍 100% en ligne ou en visio selon vos besoins</li>
-    </ul>
-  </section>
+    <section id="avantages" tabindex="0">
+      <h2>Pourquoi choisir LAMI Conseil ?</h2>
+      <ul>
+        <li>Diplômés Bac+5 en comptabilité</li>
+        <li>Accompagnement humain, clair et réactif</li>
+        <li>Expérience concrète en création et gestion d'entreprises</li>
+        <li>100% en ligne ou en visio selon vos besoins</li>
+      </ul>
+    </section>
 
-  <section id="temoignages">
-    <h2>Témoignages clients</h2>
-    <div class="testimonials">
-      <div class="testimonial-card">
-        <p>“Un service impeccable, à l’écoute et très professionnel. J’ai pu lancer mon activité en toute sérénité.”</p>
-        <p class="testimonial-author">— Julie M.</p>
+    <section id="faq" tabindex="0">
+      <h2>Foire aux questions (FAQ)</h2>
+      <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-question">
+          Quelle est la durée moyenne d'accompagnement ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">
+          L’accompagnement varie selon les besoins, en moyenne entre 1 et 3 mois pour une création d’entreprise complète.
+        </div>
       </div>
-      <div class="testimonial-card">
-        <p>“L’accompagnement personnalisé m’a beaucoup aidé à gérer mes démarches administratives. Merci !”</p>
-        <p class="testimonial-author">— Karim L.</p>
+      <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-question">
+          Est-ce que je peux bénéficier d’aides ou subventions ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">
+          Oui, nous vous informons sur les aides possibles selon votre situation (ACRE, aides Pôle emploi, etc.).
+        </div>
       </div>
-      <div class="testimonial-card">
-        <p>“Réactif et clair, un vrai partenaire pour mon entreprise. Je recommande sans hésiter.”</p>
-        <p class="testimonial-author">— Sophie D.</p>
+      <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
+        <div class="faq-question">
+          Comment se passe le suivi comptable ?
+          <span class="faq-arrow">+</span>
+        </div>
+        <div class="faq-answer">
+          Nous vous accompagnons avec des outils simples, tableaux et conseils personnalisés pour gérer efficacement votre comptabilité.
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <h2>Contactez-nous</h2>
-    <form action="#" method="post" novalidate>
-      <label for="name">Nom :</label>
-      <input type="text" id="name" name="name" required />
-      
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required />
-      
-      <label for="message">Message :</label>
-      <textarea id="message" name="message" rows="5"></textarea>
-      
-      <button type="submit" class="button">Envoyer</button>
-    </form>
-  </section>
+    <section id="temoignages" tabindex="0">
+      <h2>Témoignages clients</h2>
+      <div class="testimonials">
+        <div class="testimonial-card" tabindex="0">
+          <p>“Un service impeccable, à l’écoute et très professionnel. J’ai pu lancer mon activité en toute sérénité.”</p>
+          <p class="testimonial-author">— Julie M.</p>
+        </div>
+        <div class="testimonial-card" tabindex="0">
+          <p>“L’accompagnement personnalisé m’a beaucoup aidé à gérer mes démarches administratives. Merci !”</p>
+          <p class="testimonial-author">— Karim L.</p>
+        </div>
+        <div class="testimonial-card" tabindex="0">
+          <p>“Réactif et clair, un vrai partenaire pour mon entreprise. Je recommande sans hésiter.”</p>
+          <p class="testimonial-author">— Sophie D.</p>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 LAMI Conseil – Tous droits réservés | Mentions légales sur demande
-  </footer>
+    <section id="blog" tabindex="0">
+      <h2>Actualités & conseils</h2>
+      <div class="blog-posts">
+        <article class="blog-post" tabindex="0">
+          <h3>Comment bien préparer la création de votre auto-entreprise</h3>
+          <p>Découvrez les étapes clés pour démarrer votre activité avec succès et éviter les pièges courants.</p>
+          <time datetime="2025-05-01">1 mai 2025</time>
+        </article>
+        <article class="blog-post" tabindex="0">
+          <h3>Les aides financières pour les entrepreneurs en 2025</h3>
+          <p>Un tour d’horizon des aides et subventions auxquelles vous pouvez prétendre cette année.</p>
+          <time datetime="2025-04-10">10 avril 2025</time>
+        </article>
+        <article class="blog-post" tabindex="0">
+          <h3>Pourquoi externaliser votre comptabilité ?</h3>
+          <p>Gagnez du temps et concentrez-vous sur votre business grâce à une comptabilité bien tenue.</p>
+          <time datetime="2025-03-25">25 mars 2025</time>
+        </article>
+      </div>
+    </section>
 
-  <a href="https://wa.me/33651323494" target="_blank" aria-label="Contact WhatsApp" class="whatsapp-button">
+    <section id="contact" tabindex="0">
+      <h2>Contactez-nous</h2>
+      <form id="contactForm" action="send_mail.php" method="POST" novalidate>
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" required autocomplete="name" />
+        
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email" required autocomplete="email" />
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        
+        <button type="submit" class="button">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <a href="https://wa.me/33612345678" aria-label="Contact WhatsApp" target="_blank" rel="noopener" class="whatsapp-button">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
 
+  <footer>
+    <p>&copy; 2025 LAMI Conseil – Tous droits réservés</p>
+  </footer>
+
   <script>
-    // Fade-in sections on scroll
-    const sections = document.querySelectorAll('header, nav, section, .testimonial-card');
-    const options = {
-      threshold: 0.1
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          item.setAttribute('aria-expanded', 'true');
         }
       });
-    }, options);
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
+    });
 
-    sections.forEach(section => observer.observe(section));
+    // Form validation (HTML5 + optional custom)
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', e => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        alert('Veuillez remplir tous les champs correctement.');
+      }
+    });
   </script>
-
 </body>
 </html>
-
 
