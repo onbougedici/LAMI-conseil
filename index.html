@@ -546,7 +546,28 @@
         alert('Veuillez remplir tous les champs correctement.');
       }
     });
-  </script>
+<!-- Tout ton contenu HTML ici -->
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = 'merci.html';
+      } else {
+        alert('Erreur lors de l’envoi du formulaire.');
+      }
+    }).catch(error => {
+      alert('Erreur réseau.');
+    });
+  });
+</script>
 </body>
 </html>
+
 
