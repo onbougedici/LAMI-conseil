@@ -473,7 +473,7 @@
 <section id="contact" tabindex="0" class="py-12 bg-gray-50">
   <h2 class="text-3xl font-semibold text-center mb-8">Contactez-nous</h2>
   
-<form action="/envoyer-message" method="POST" class="space-y-6 max-w-xl mx-auto">
+<form class="space-y-4 max-w-xl mx-auto">
   <!-- Nom -->
   <div>
     <label for="nom" class="block font-medium text-gray-700">Nom *</label>
@@ -488,11 +488,12 @@
            class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring focus:ring-indigo-200" />
   </div>
 
-<div>
-  <label for="telephone" class="block font-medium text-gray-700">Téléphone *</label>
-  <input type="tel" id="telephone" name="telephone" required pattern="^[0-9]{10}$" maxlength="10"
-         class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring focus:ring-indigo-200" />
-</div>
+  <!-- Téléphone -->
+  <div>
+    <label for="telephone" class="block font-medium text-gray-700">Téléphone *</label>
+    <input type="tel" id="telephone" name="telephone" required pattern="^[0-9]{10}$" maxlength="10"
+           class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring focus:ring-indigo-200" />
+  </div>
 
   <!-- Sujet -->
   <div>
@@ -504,14 +505,14 @@
   <!-- Message -->
   <div>
     <label for="message" class="block font-medium text-gray-700">Message *</label>
-    <textarea id="message" name="message" required maxlength="1000" rows="6"
+    <textarea id="message" name="message" required maxlength="1000" rows="5"
               class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring focus:ring-indigo-200"></textarea>
   </div>
 
-  <!-- Bouton envoyer -->
+  <!-- Bouton -->
   <div>
     <button type="submit"
-            class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition">
+            class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700 transition">
       Envoyer
     </button>
   </div>
