@@ -388,12 +388,36 @@
   </nav>
 
   <main>
-    <section id="presentation" tabindex="0">
-  <p style="font-size: 1.2rem; max-width: 800px; margin: 2rem auto; text-align: center; color: #3a2c24;">
-    Fortis Conseil vous accompagne à chaque étape de votre aventure entrepreneuriale, avec un suivi personnalisé, 100% en ligne. 
+<section id="presentation" tabindex="0" class="fade-slide-up" style="font-size: 1.2rem; max-width: 800px; margin: 2rem auto; text-align: center; color: #3a2c24;">
+  <p>
+    Fortis Conseil accompagne particuliers et professionnels à chaque étape de leur aventure entrepreneuriale, avec un suivi personnalisé, 100% en ligne.<br><br>
     Que vous soyez en création, en développement ou simplement à la recherche de simplicité, nous sommes là pour vous aider à gagner du temps et de la sérénité.
   </p>
 </section>
+
+<style>
+  .fade-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  .fade-slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const presentation = document.getElementById('presentation');
+    // Petite pause avant affichage pour effet plus naturel
+    setTimeout(() => {
+      presentation.classList.add('visible');
+    }, 200);
+  });
+</script>
+
+    
 <section id="services" tabindex="0">
   <h2>Nos services</h2>
 
