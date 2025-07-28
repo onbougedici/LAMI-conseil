@@ -525,19 +525,66 @@
   </div>
 </div>
    
-    <section id="avantages" tabindex="0">
-<section class="bg-white py-12 px-4 sm:px-8 lg:px-16">
-  <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">Pourquoi nous choisir ?</h2>
-  <ul class="space-y-4 text-gray-700 text-base">
-    <li>🎓 Diplômés en comptabilité, gestion et droit des affaires</li>
-    <li>🤝 Accompagnement humain, pédagogique et réactif</li>
-    <li>📊 Expérience concrète en création, gestion et développement d'entreprises</li>
-    <li>🛠️ Suivi personnalisé à chaque étape : statuts, démarches, comptabilité, fiscalité</li>
-    <li>💻 100% en ligne ou en visio selon vos préférences</li>
-    <li>💰 Tarifs transparents, adaptés aux petits budgets et créateurs débutants</li>
-    <li>🧘 Notre objectif : vous aider à entreprendre en toute sérénité</li>
-  </ul>
+<section id="avantages" tabindex="0">
+  <section class="bg-white py-12 px-4 sm:px-8 lg:px-16">
+    <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">Pourquoi nous choisir ?</h2>
+    <ul class="space-y-4 text-gray-700 text-base">
+      <li class="fade-slide-up">🎓 Diplômés en comptabilité, gestion et droit des affaires</li>
+      <li class="fade-slide-up">🤝 Accompagnement humain, pédagogique et réactif</li>
+      <li class="fade-slide-up">📊 Expérience concrète en création, gestion et développement d'entreprises</li>
+      <li class="fade-slide-up">🛠️ Suivi personnalisé à chaque étape : statuts, démarches, comptabilité, fiscalité</li>
+      <li class="fade-slide-up">💻 100% en ligne ou en visio selon vos préférences</li>
+      <li class="fade-slide-up">💰 Tarifs transparents, adaptés aux petits budgets et créateurs débutants</li>
+      <li class="fade-slide-up">🧘 Notre objectif : vous aider à entreprendre en toute sérénité</li>
+    </ul>
+  </section>
 </section>
+
+<style>
+  .fade-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('#avantages ul li.fade-slide-up');
+
+    function animateItems() {
+      if (items.length === 0) return;
+
+      // On vérifie si le premier élément est visible (la liste entière)
+      if (isElementInViewport(items[0])) {
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 200); // délai en cascade, 200ms entre chaque ligne
+        });
+        window.removeEventListener('scroll', animateItems);
+      }
+    }
+
+    window.addEventListener('scroll', animateItems);
+    // Vérif immédiate au chargement
+    animateItems();
+  });
+</script>
+
+    
   <section id="faq">
   <h2>FAQ - Questions fréquentes</h2>
 
