@@ -408,14 +408,30 @@
 </style>
 
 <script>
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const presentation = document.getElementById('presentation');
-    // Petite pause avant affichage pour effet plus naturel
-    setTimeout(() => {
-      presentation.classList.add('visible');
-    }, 200);
+
+    function checkVisibility() {
+      if (isElementInViewport(presentation)) {
+        presentation.classList.add('visible');
+        window.removeEventListener('scroll', checkVisibility);
+      }
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    // Check immediately in case element is already visible on load
+    checkVisibility();
   });
 </script>
+
 
     
 <section id="services" tabindex="0">
