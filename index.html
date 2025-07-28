@@ -632,23 +632,52 @@
     </div>
   </div>
 </section>
-    <section id="temoignages" tabindex="0">
-      <h2>Témoignages clients</h2>
-      <div class="testimonials">
-        <div class="testimonial-card" tabindex="0">
-          <p>“Un service impeccable, à l’écoute et très professionnel. J’ai pu lancer mon activité en toute sérénité.”</p>
-          <p class="testimonial-author">— Julie M.</p>
-        </div>
-        <div class="testimonial-card" tabindex="0">
-          <p>“L’accompagnement personnalisé m’a beaucoup aidé à gérer mes démarches administratives. Merci !”</p>
-          <p class="testimonial-author">— Karim L.</p>
-        </div>
-        <div class="testimonial-card" tabindex="0">
-          <p>“Réactif et clair, un vrai partenaire pour mon entreprise. Je recommande sans hésiter.”</p>
-          <p class="testimonial-author">— Sophie D.</p>
-        </div>
-      </div>
-    </section>
+<section id="temoignages" tabindex="0">
+  <h2>Témoignages clients</h2>
+  <div class="testimonial-carousel" id="carousel" style="max-width:700px; margin: 0 auto 2rem; position: relative; overflow: hidden; height: 160px;">
+    <div class="testimonial-slide" tabindex="0" style="position:absolute; width:100%; padding:1.5rem; background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
+      <p>“Un service impeccable, à l’écoute et très professionnel. J’ai pu lancer mon activité en toute sérénité.”</p>
+      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Julie M.</p>
+    </div>
+    <div class="testimonial-slide" tabindex="0" style="position:absolute; width:100%; padding:1.5rem; background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
+      <p>“L’accompagnement personnalisé m’a beaucoup aidé à gérer mes démarches administratives. Merci !”</p>
+      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Karim L.</p>
+    </div>
+    <div class="testimonial-slide" tabindex="0" style="position:absolute; width:100%; padding:1.5rem; background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
+      <p>“Réactif et clair, un vrai partenaire pour mon entreprise. Je recommande sans hésiter.”</p>
+      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Sophie D.</p>
+    </div>
+    <div class="testimonial-slide" tabindex="0" style="position:absolute; width:100%; padding:1.5rem; background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
+      <p>“Grâce à Fortis Conseil, j’ai pu me concentrer sur mon projet sans me soucier de l’administratif.”</p>
+      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Laura T.</p>
+    </div>
+    <div class="testimonial-slide" tabindex="0" style="position:absolute; width:100%; padding:1.5rem; background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
+      <p>“Service professionnel et rapide, je recommande vivement pour la gestion comptable.”</p>
+      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Michel R.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.testimonial-slide');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = (i === index) ? '1' : '0';
+      slide.style.position = (i === index) ? 'relative' : 'absolute';
+      slide.style.zIndex = (i === index) ? '10' : '1';
+    });
+  }
+
+  function startCarousel() {
+    showSlide(current);
+    current = (current + 1) % slides.length;
+  }
+
+  showSlide(current);
+  setInterval(startCarousel, 4000); // défile toutes les 4 secondes
+</script>
 <section id="contact" tabindex="0" class="py-12 bg-gray-50">
   <h2 class="text-3xl font-semibold text-center mb-8">Contactez-nous</h2>
   
