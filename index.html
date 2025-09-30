@@ -368,6 +368,53 @@
     .btn-service:hover {
       background-color: #5e371c;
     }
+      <style>
+    /* Header */
+    header {
+      position: relative;
+      overflow: visible;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+
+    /* Logo oiseau */
+    .logo-oiseau {
+      width: 120px;
+      position: absolute;
+      top: 18px;   /* position finale */
+      left: 18px;
+      transform: translate(-400px, -200px) rotate(-20deg) scale(0.8);
+      opacity: 0;
+      z-index: 50;
+      animation: envol 1.8s cubic-bezier(.2,.9,.3,1) forwards;
+    }
+
+    /* Animation vol */
+    @keyframes envol {
+      0% {
+        transform: translate(-400px, -200px) rotate(-20deg) scale(0.8);
+        opacity: 0;
+      }
+      60% {
+        transform: translate(40px, -10px) rotate(8deg) scale(1.05);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Battement doux après arrivée */
+    .logo-oiseau.arrived {
+      animation: battement 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes battement {
+      from { transform: translate(0,0) rotate(0deg) scale(1); }
+      to   { transform: translate(0,-3px) rotate(0deg) scale(1.03); }
+    }
+  </style>
 
   </style>
 
@@ -909,6 +956,7 @@
 </script>
 </body>
 </html>
+
 
 
 
