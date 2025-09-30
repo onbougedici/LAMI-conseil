@@ -377,6 +377,32 @@
   <h1>Fortis Conseil</h1>
   <p>Simplifiez votre administratif, concentrez-vous sur votre activité</p>
   <img src="conseil1.png" alt="Fortis Conseil" class="header-image" />
+  .header-image {
+  width: 120px;
+  position: absolute;
+  top: -150px; /* démarre hors de l’écran */
+  left: -150px;
+  animation: envol 3s ease-out forwards;
+}
+
+@keyframes envol {
+  0% {
+    transform: translate(-200px, -200px) rotate(-20deg) scale(0.8);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(100px, 50px) rotate(10deg) scale(1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(200px, -30px) rotate(-10deg) scale(1);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    top: 20px;
+    left: 20px; /* position finale dans ton header */
+  }
+}
 </header>
 
   <nav>
@@ -909,6 +935,7 @@
 </script>
 </body>
 </html>
+
 
 
 
