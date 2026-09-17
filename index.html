@@ -548,17 +548,7 @@ header {
   </section>
 </section>
 
-<style>
-  . {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-  }
-  ..visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+
 
 <script>
   function isElementInViewport(el) {
@@ -570,7 +560,7 @@ header {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('#avantages ul li.');
+    const items = document.querySelectorAll('#avantages ul li');
 
     function animateItems() {
       if (items.length === 0) return;
