@@ -368,51 +368,65 @@
     .btn-service:hover {
       background-color: #5e371c;
     }
-      <style>
-    /* Header */
-    header {
+
+
+    
+
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    ...
+  }
+
+  header {
+    background-color: #6a503a;
+    color: #f6f1ec;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     position: relative;
-    height: 150px;
-    padding: 20px;
-    background-color: #f2f2f2;
   }
 
-  h1 {
-    margin: 0;
-  }
+  ...
 
-  p {
-    margin: 5px 0 0 0;
-  }
+  /* LOGO OISEAU */
 
-.logo-oiseau {
-  width: 20vw; /* taille relative à la largeur de l'écran */
-  position: absolute;
-  top: 5vh;   /* position finale verticale */
-  left: 5vw;  /* position finale horizontale */
-  animation: envol 3s ease-out forwards;
-}
-
-@keyframes envol {
-  0% {
-    transform: translate(-50vw, -50vh) rotate(-20deg) scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-    opacity: 1;
-  }
-}
-@media (max-width: 600px) {
   .logo-oiseau {
-    width: 70px;       /* plus petit logo */
-    left: 6px;         /* décale encore plus à gauche */
-    top: 10px;         /* ajuste légèrement vers le haut si nécessaire */
-      }
-}
-</style>
-  </style>
+    width: 140px;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    z-index: 10;
+    animation: envol 2s ease-out forwards;
+  }
 
+  @keyframes envol {
+    0% {
+      transform: translate(-300px, -200px) rotate(-20deg) scale(0.6);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo-oiseau {
+      width: 70px;
+      top: 10px;
+      left: 10px;
+    }
+  }
+
+</style>
+
+    
 </head>
 <body>
 <header>
@@ -654,7 +668,7 @@
         <span class="faq-arrow">+</span>
       </div>
       <div class="faq-answer">
-        La loi n’impose pas de minimum pour une SASU ou une EURL : <strong>1 euro suffit</strong> ! Toutefois, un capital plus élevé peut rassurer vos partenaires. Nous vous Gestionlons selon votre projet.
+        La loi n’impose pas de minimum pour une SASU ou une EURL : <strong>1 euro suffit</strong> ! Toutefois, un capital plus élevé peut rassurer vos partenaires. Nous vous conseillons selon votre projet.
       </div>
     </div>
     <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
