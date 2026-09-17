@@ -366,6 +366,18 @@ header {
   opacity: 1;
   transform: translateY(0);
 }
+
+    /* Animation Pourquoi nous choisir */
+#avantages ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#avantages ul li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
     
 
     /* LOGO OISEAU */
@@ -408,18 +420,7 @@ header {
   <img src="Gestion1.png" alt="Fortis Gestion" class="logo-oiseau" />
 </header>
 
-  /* Animation Pourquoi nous choisir */
-#avantages ul li {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
 
-#avantages ul li.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-  
   <nav>
     <a href="#services">Services</a>
     <a href="#avantages">Pourquoi nous choisir</a>
