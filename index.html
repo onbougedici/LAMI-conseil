@@ -356,6 +356,17 @@ header {
       background-color: #5e371c;
     }
 
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    
 
     /* LOGO OISEAU */
 
