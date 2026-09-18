@@ -109,6 +109,51 @@ header p {
   z-index: 2;
 }
 
+    .hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.hero-btn-primary {
+  background: #6a503a;
+  color: #ffffff;
+  border: 2px solid #6a503a;
+  box-shadow: 0 6px 18px rgba(67, 48, 34, 0.15);
+}
+
+.hero-btn-primary:hover {
+  background: #5b452e;
+  border-color: #5b452e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(67, 48, 34, 0.20);
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  color: #6a503a;
+  border: 2px solid #6a503a;
+}
+
+.hero-btn-secondary:hover {
+  background: #6a503a;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+    
 /* =========================
    LOGO OISEAU
 ========================= */
@@ -157,6 +202,17 @@ header p {
 /* =========================
    MOBILE
 ========================= */
+    .hero-buttons {
+  flex-direction: column;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.hero-btn {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
 
 @media (max-width: 600px) {
 
