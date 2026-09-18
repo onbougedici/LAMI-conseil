@@ -1,49 +1,869 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Création de Site Internet | Fortis Gestion</title>
-  <meta name="description" content="Fortis Gestion vous accompagne dans la création de votre site internet professionnel : design responsive, contenu personnalisé, contact facile." />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body style="font-family: Arial, sans-serif; padding: 2em; background-color: #f8f8f8; color: #2e3b4e;">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <header style="text-align: center; margin-bottom: 3em;">
-    <h1>Création de Site Internet Professionnel</h1>
-    <p>Donnez vie à votre présence en ligne avec une page claire, attractive et adaptée à votre activité</p>
+  <title>Création de site internet | Fortis Gestion</title>
+
+  <meta name="description" content="Création de site internet professionnel avec Fortis Gestion : site vitrine responsive, contenu, formulaire de contact et mise en ligne. Offre à partir de 99 €.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f1ec;
+      color: #3a2c24;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HERO */
+    .service-hero {
+      background: #ffffff;
+      padding: 70px 20px 80px;
+      text-align: center;
+      border-bottom: 1px solid #eadfd5;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: #f1e8df;
+      color: #6a503a;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .service-hero h1 {
+      margin: 0 auto 18px;
+      max-width: 850px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: #5b452e;
+    }
+
+    .service-hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: 1.15rem;
+      color: #6a5a4e;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #6a503a;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #5b452e;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #6a503a;
+      color: #6a503a;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #6a503a;
+      color: #ffffff;
+    }
+
+    /* GENERAL */
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: #5b452e;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: #6d625b;
+    }
+
+    /* INTRO */
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.08rem;
+    }
+
+    .intro strong {
+      color: #5b452e;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #eadfd5;
+      box-shadow: 0 5px 18px rgba(67, 48, 34, 0.06);
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      background: #f1e8df;
+      font-size: 1.3rem;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #5b452e;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #6d625b;
+      font-size: 0.95rem;
+    }
+
+    /* PROCESS */
+    .process {
+      background: #ffffff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 25px 18px;
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #6a503a;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      color: #5b452e;
+    }
+
+    .step p {
+      margin: 0;
+      color: #6d625b;
+      font-size: 0.93rem;
+    }
+
+    /* PRICE */
+    .price-section {
+      text-align: center;
+    }
+
+    .price-card {
+      max-width: 650px;
+      margin: auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 18px;
+      border: 2px solid #d9c8b8;
+      box-shadow: 0 8px 25px rgba(67, 48, 34, 0.08);
+    }
+
+    .price-card h3 {
+      margin: 0 0 10px;
+      color: #5b452e;
+      font-size: 1.4rem;
+    }
+
+    .price {
+      margin: 10px 0 20px;
+      color: #6a503a;
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+
+    .price-card ul {
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+    }
+
+    .price-card li {
+      margin: 10px 0;
+    }
+
+    .price-note {
+      color: #6d625b;
+      font-size: 0.92rem;
+    }
+
+    /* TARGET */
+    .target {
+      background: #ffffff;
+    }
+
+    .target-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .target-box p {
+      color: #6d625b;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+      background: #ffffff;
+      border: 1px solid #eadfd5;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: #5b452e;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      color: #6d625b;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* CTA */
+    .final-cta {
+      padding: 75px 20px;
+      background: #6a503a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    .final-cta p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      opacity: 0.92;
+    }
+
+    .final-cta .btn {
+      background: #ffffff;
+      color: #5b452e;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 20px;
+      background: #5b452e;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-hero {
+        padding: 55px 20px 60px;
+      }
+
+      .service-hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card {
+        padding: 30px 22px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <header class="service-hero">
+
+```
+<div class="hero-label">Fortis Gestion</div>
+
+<h1>Création de site internet professionnel</h1>
+
+<p>
+  Une présence en ligne claire et professionnelle pour présenter votre
+  activité, vos services et permettre à vos clients de vous contacter.
+</p>
+
+<div class="hero-buttons">
+
+  <a href="index.html#contact" class="btn btn-primary">
+    Demander un devis
+  </a>
+
+  <a href="index.html#services" class="btn btn-secondary">
+    Retour aux services
+  </a>
+
+</div>
+```
+
   </header>
 
-  <section style="max-width: 800px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <h2>Un site internet clé en main pour booster votre visibilité</h2>
+  <!-- INTRO -->
+
+  <section>
+
+```
+<div class="container">
+
+  <div class="section-title">
+    <h2>Votre site, votre vitrine en ligne</h2>
+  </div>
+
+  <div class="intro">
+
     <p>
-      Dans un monde connecté, votre site internet est la vitrine de votre entreprise. Fortis Conseil vous accompagne dans la création d’un site professionnel simple, moderne et efficace, pour attirer vos clients et faciliter le contact.
+      Un site internet permet à vos clients et prospects de découvrir
+      votre activité, vos prestations et vos coordonnées à tout moment.
     </p>
 
-    <h3>Nos prestations pour votre site internet :</h3>
-    <ul>
-      <li>✅ Design responsive adapté à tous les supports (ordinateurs, tablettes, mobiles)</li>
-      <li>✅ Rédaction personnalisée des textes pour valoriser vos services</li>
-      <li>✅ Intégration de photos, logo et éléments graphiques</li>
-      <li>✅ Formulaire de contact sécurisé pour échanger facilement avec vos clients</li>
-      <li>✅ Respect des mentions légales et RGPD</li>
-      <li>✅ Livraison rapide en 3 à 5 jours selon la complexité</li>
-    </ul>
-
-    <h3>Pourquoi choisir Fortis Gestion ?</h3>
     <p>
-      Nous mettons l'accent sur la simplicité, la clarté et l’efficacité. Pas de jargon technique inutile, juste un site qui vous ressemble et qui convertit vos visiteurs en clients.
+      <strong>Fortis Gestion</strong> vous accompagne dans la création
+      d'un site vitrine adapté à votre activité, avec une présentation
+      claire et une navigation pensée pour ordinateur, tablette et mobile.
     </p>
 
-    <a href="index.html#contact"
-       style="display:inline-block; margin-top: 2em; background-color: #0077cc; color: #fff; padding: 0.8em 1.5em; text-decoration: none; border-radius: 5px; font-weight: bold;">
-      Démarrer ma présence en ligne
-    </a>
+    <p>
+      L'objectif est de vous fournir une base professionnelle que vous
+      pourrez utiliser pour présenter votre entreprise sur internet.
+    </p>
+
+  </div>
+
+</div>
+```
+
   </section>
 
-  <footer style="text-align: center; margin-top: 4em; font-size: 0.9em; color: #777;">
-    © 2026 Fortis Gestion • <a href="mentions-legales.html">Mentions légales</a> • <a href="politique-confidentialite.html">Politique de confidentialité</a>
+  <!-- PRESTATIONS -->
+
+  <section>
+
+```
+<div class="container">
+
+  <div class="section-title">
+    <h2>Ce qui est inclus</h2>
+
+    <p>
+      Une prestation pensée pour les professionnels qui souhaitent
+      disposer d'un site vitrine simple et efficace.
+    </p>
+  </div>
+
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">💻</div>
+
+      <h3>Site responsive</h3>
+
+      <p>
+        Une mise en page adaptée aux ordinateurs, tablettes et
+        smartphones.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <div class="card-icon">🎨</div>
+
+      <h3>Design personnalisé</h3>
+
+      <p>
+        Une présentation adaptée à votre activité, votre identité et aux
+        informations que vous souhaitez mettre en avant.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <div class="card-icon">✍️</div>
+
+      <h3>Contenu</h3>
+
+      <p>
+        Organisation et intégration des textes présentant votre
+        entreprise, vos services et vos coordonnées.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <div class="card-icon">🖼️</div>
+
+      <h3>Images &amp; logo</h3>
+
+      <p>
+        Intégration de votre logo, de vos images et des éléments
+        graphiques disponibles pour votre projet.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <div class="card-icon">📩</div>
+
+      <h3>Formulaire de contact</h3>
+
+      <p>
+        Mise en place d'un moyen simple permettant aux visiteurs de
+        prendre contact avec votre entreprise.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <div class="card-icon">🌐</div>
+
+      <h3>Mise en ligne</h3>
+
+      <p>
+        Accompagnement pour la mise en ligne du site et la configuration
+        du nom de domaine selon la formule choisie.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- MÉTHODE -->
+
+  <section class="process">
+
+```
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>Comment ça marche ?</h2>
+
+    <p>
+      De votre besoin à la mise en ligne, nous avançons étape par étape.
+    </p>
+
+  </div>
+
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">01</div>
+
+      <h3>Échange</h3>
+
+      <p>
+        Nous faisons le point sur votre activité, vos besoins et les
+        informations à présenter.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">02</div>
+
+      <h3>Conception</h3>
+
+      <p>
+        Nous définissons la structure et la présentation du site selon
+        votre activité.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">03</div>
+
+      <h3>Création</h3>
+
+      <p>
+        Le contenu et les différents éléments sont intégrés au site.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">04</div>
+
+      <h3>Mise en ligne</h3>
+
+      <p>
+        Le site est mis en ligne après validation des éléments prévus
+        dans la prestation.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- TARIF -->
+
+  <section class="price-section">
+
+```
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>Notre tarif</h2>
+
+    <p>
+      Une offre simple pour disposer d'une présence professionnelle
+      en ligne.
+    </p>
+
+  </div>
+
+
+  <div class="price-card">
+
+    <h3>Site internet vitrine</h3>
+
+    <div class="price">À partir de 99 €</div>
+
+    <ul>
+      <li>✓ Création d'un site vitrine</li>
+      <li>✓ Design adapté à votre activité</li>
+      <li>✓ Version ordinateur, tablette et mobile</li>
+      <li>✓ Intégration de vos textes et éléments visuels</li>
+      <li>✓ Formulaire de contact</li>
+      <li>✓ Mise en ligne selon la formule choisie</li>
+    </ul>
+
+    <p class="price-note">
+      Le tarif peut évoluer selon le nombre de pages, les fonctionnalités
+      demandées et les éléments à créer ou intégrer. Le nom de domaine
+      et l'hébergement peuvent être inclus selon l'offre retenue.
+    </p>
+
+    <a href="index.html#contact" class="btn btn-primary">
+      Demander mon site
+    </a>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- POUR QUI -->
+
+  <section class="target">
+
+```
+<div class="container">
+
+  <div class="section-title">
+    <h2>Pour qui ?</h2>
+  </div>
+
+  <div class="target-box">
+
+    <p>
+      Cette prestation s'adresse notamment aux indépendants, artisans,
+      commerçants, associations, professions de services et petites
+      entreprises qui souhaitent présenter leur activité sur internet.
+    </p>
+
+    <p>
+      Elle convient particulièrement aux structures qui recherchent un
+      site vitrine sans fonctionnalités complexes.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FAQ -->
+
+  <section>
+
+```
+<div class="container">
+
+  <div class="section-title">
+    <h2>Questions fréquentes</h2>
+  </div>
+
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Combien de temps faut-il pour créer le site ?
+      </button>
+
+      <div class="faq-answer">
+        Le délai dépend notamment du nombre de pages, des contenus
+        disponibles et des fonctionnalités demandées. Le délai estimatif
+        est défini au moment de la validation du projet.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Le site fonctionne-t-il sur mobile ?
+      </button>
+
+      <div class="faq-answer">
+        Oui. La mise en page est conçue pour s'adapter aux principaux
+        formats d'écran : ordinateur, tablette et smartphone.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Dois-je fournir les textes et les photos ?
+      </button>
+
+      <div class="faq-answer">
+        Vous pouvez fournir vos propres textes, photos et éléments
+        graphiques. Selon la formule choisie, Fortis Gestion peut
+        également vous accompagner dans leur organisation et leur
+        intégration.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Le nom de domaine et l'hébergement sont-ils compris ?
+      </button>
+
+      <div class="faq-answer">
+        Cela dépend de l'offre retenue. Les conditions relatives au nom
+        de domaine, à l'hébergement et aux éventuels renouvellements sont
+        précisées dans le devis ou la proposition commerciale.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        Pouvez-vous modifier le site après sa mise en ligne ?
+      </button>
+
+      <div class="faq-answer">
+        Oui. Des modifications ou prestations complémentaires peuvent
+        être proposées après la mise en ligne selon vos besoins.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="final-cta">
+
+```
+<h2>Vous avez besoin d'un site pour votre activité ?</h2>
+
+<p>
+  Présentez-nous votre projet et nous vous proposerons une solution
+  adaptée à votre besoin.
+</p>
+
+<a href="index.html#contact" class="btn">
+  Demander un devis
+</a>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+```
+© 2026 Fortis Gestion •
+<a href="mentions-legales.html">Mentions légales</a> •
+<a href="politique-confidentialite.html">
+  Politique de confidentialité
+</a>
+```
+
   </footer>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach(function(button) {
+      button.addEventListener("click", function() {
+        const item = button.parentElement;
+        item.classList.toggle("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
+
