@@ -1,885 +1,2167 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="icon" type="image/png" href="favicon.png" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fortis Gestion – Votre partenaire business : création , gestion & digital</title>
-  <meta name="description" content="Fortis Gestion accompagne les entrepreneurs avec des services administratifs et comptables personnalisés, 100% en ligne." />
-  <meta name="keywords" content="comptabilité, administratif, entrepreneurs, création auto-entreprise, business plan, digital" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fortis Gestion – Création, gestion & digital</title>
+
+  <meta
+    name="description"
+    content="Fortis Gestion accompagne entrepreneurs, indépendants et TPE dans la création, la gestion administrative, la comptabilité, les RH et le digital."
+  />
+
+  <meta
+    name="keywords"
+    content="Fortis Gestion, comptabilité, création entreprise, administratif, RH, business plan, site internet, gestion"
+  />
+
   <meta name="author" content="Fortis Gestion" />
+
   <link rel="canonical" href="https://fortis-gestion.fr/" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <style>
-    /* Reset */
-    *, *::before, *::after {
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
       box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
       background: #f6f1ec;
       color: #3a2c24;
       line-height: 1.6;
-      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* =========================
+       VARIABLES
+    ========================= */
+
+    :root {
+      --brown-dark: #5b452e;
+      --brown: #6a503a;
+      --brown-light: #8c6e4b;
+      --cream: #f6f1ec;
+      --cream-dark: #eee5dc;
+      --white: #ffffff;
+      --text: #3a2c24;
+      --muted: #76685d;
+      --shadow: 0 10px 30px rgba(67, 48, 34, 0.10);
+      --shadow-hover: 0 15px 35px rgba(67, 48, 34, 0.16);
+      --radius: 18px;
+    }
+
+    /* =========================
+       HEADER / HERO
+    ========================= */
+
+    header {
+      position: relative;
+      min-height: 590px;
+      padding: 110px 20px 80px;
       display: flex;
       flex-direction: column;
-    }
-header {
-  background-color: #6a503a;
-  position: relative;
-      color: #f6f1ec;
-      padding: 2rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-    }
-    header p {
-      margin: 0.5rem 0 1rem;
-      font-weight: 300;
-      font-size: 1.2rem;
-    }
-    nav {
-      background: #5b452e;
-      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      flex-wrap: wrap;
-      font-size: 1rem;
-    }
-    nav a {
-      color: #f6f1ec;
-      text-decoration: none;
-      padding: 0.5rem 0.75rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover,
-    nav a:focus {
-      background: #8c6e4b;
-      outline: none;
-    }
-    main {
-      flex-grow: 1;
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      width: 100%;
-    }
-    h2 {
-      color: #6a503a;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #8c6e4b;
-      padding-bottom: 0.3rem;
-    }
-    /* Services */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 1.5rem;
-    }
-    .service-card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgb(106 80 58 / 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-    }
-    .service-card:hover,
-    .service-card:focus-within {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgb(106 80 58 / 0.2);
-      outline: none;
-    }
-    .service-card h3 {
-      margin-top: 0;
-      color: #6a503a;
-      font-size: 1.25rem;
-    }
-    .service-card strong {
-      display: block;
-      margin-top: 0.8rem;
-      font-size: 1.1rem;
-      color: #8c6e4b;
-    }
-    /* Pourquoi choisir */
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      max-width: 600px;
-    }
-    ul li {
-      margin-bottom: 0.8rem;
-      font-size: 1.1rem;
-      position: relative;
-      padding-left: 2rem;
-    }
-    ul li::before {
-      content: '➔';
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    /* Témoignages */
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 1.5rem;
-    }
-    .testimonial-card {
-      background: #fff;
-      padding: 1.25rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgb(106 80 58 / 0.1);
-      font-style: italic;
-      color: #5a4a3d;
-      transition: box-shadow 0.3s ease;
-    }
-    .testimonial-card:hover,
-    .testimonial-card:focus-within {
-      box-shadow: 0 6px 18px rgb(106 80 58 / 0.2);
-      outline: none;
-    }
-    .testimonial-author {
-      margin-top: 1rem;
-      text-align: right;
-      font-style: normal;
-      font-weight: 600;
-      color: #6a503a;
-    }
-    /* Contact Form */
-    form {
-      margin: 0 auto;
-      max-width: 600px;
-      background: #fff;
-      padding: 1.5rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 6px 15px rgb(106 80 58 / 0.1);
-      margin-bottom: 3rem;
-    }
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      margin-top: 1rem;
-      color: #6a503a;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      font-size: 1rem;
-      border: 1px solid #bba77e;
-      border-radius: 6px;
-      transition: border-color 0.3s ease;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
-      border-color: #6a503a;
-      outline: none;
-    }
-    button.button {
-      background-color: #6a503a;
-      color: #f6f1ec;
-      border: none;
-      padding: 0.75rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 1.5rem;
-      transition: background-color 0.3s ease;
-    }
-    button.button:hover,
-    button.button:focus {
-      background-color: #8c6e4b;
-      outline: none;
-    }
-    /* FAQ */
-    .faq-item {
-      background: #fff;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgb(106 80 58 / 0.07);
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(
+          rgba(91, 69, 46, 0.94),
+          rgba(106, 80, 58, 0.94)
+        );
       overflow: hidden;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
     }
-    .faq-item:hover,
-    .faq-item:focus-within {
-      box-shadow: 0 6px 18px rgb(106 80 58 / 0.15);
-      outline: none;
-    }
-    .faq-question {
-      background: #8c6e4b;
-      color: #f6f1ec;
-      padding: 1rem 1.5rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .faq-answer {
-      padding: 1rem 1.5rem;
-      display: none;
-      line-height: 1.5;
-      color: #3a2c24;
-      font-weight: 400;
-      font-size: 1rem;
-    }
-    .faq-item.open .faq-answer {
-      display: block;
-    }
-    .faq-arrow {
-      transition: transform 0.3s ease;
-      font-weight: 900;
-    }
-    .faq-item.open .faq-arrow {
-      transform: rotate(45deg);
-    }
-    /* Blog */
-    .blog-posts {
-      display: grid;
-      gap: 1.5rem;
-      max-width: 960px;
-    }
-    .blog-post {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgb(106 80 58 / 0.08);
-      transition: box-shadow 0.3s ease;
-    }
-    .blog-post:hover,
-    .blog-post:focus-within {
-      box-shadow: 0 6px 20px rgb(106 80 58 / 0.2);
-      outline: none;
-    }
-    .blog-post h3 {
-      margin-top: 0;
-      color: #6a503a;
-    }
-    .blog-post p {
-      color: #5a4a3d;
-    }
-    .blog-post time {
-      display: block;
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: #8c6e4b;
-    }
-    /* Footer */
-    footer {
-      background: #5b452e;
-      color: #f6f1ec;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-    /* WhatsApp button */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
-      width: 56px;
-      height: 56px;
+      background: rgba(255, 255, 255, 0.04);
+      top: -250px;
+      right: -150px;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      bottom: -200px;
+      left: -100px;
+    }
+
+    .logo-oiseau {
+      position: absolute;
+      width: 140px;
+      top: 20px;
+      left: 30px;
+      z-index: 10;
+      animation: envol 2s ease-out forwards;
+    }
+
+    @keyframes envol {
+      0% {
+        transform: translate(-300px, -200px) rotate(-20deg) scale(0.6);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    header h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+    }
+
+    .hero-slogan {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .hero-services {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      transition: background-color 0.3s ease;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .hero-btn-primary {
+      background: white;
+      color: var(--brown-dark);
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-btn-secondary {
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: white;
+    }
+
+    .hero-btn-secondary:hover {
+      background: white;
+      color: var(--brown-dark);
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav.main-nav {
+      position: sticky;
+      top: 0;
       z-index: 1000;
+      background: var(--brown-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 12px 15px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
     }
-    .whatsapp-button:hover,
-    .whatsapp-button:focus {
-      background-color: #1ebe57;
-      outline: none;
+
+    nav.main-nav a {
+      color: white;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
     }
-    .whatsapp-button img {
-      width: 28px;
-      height: 28px;
+
+    nav.main-nav a:hover {
+      background: rgba(255, 255, 255, 0.12);
     }
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav {
-        gap: 1rem;
-        font-size: 0.9rem;
-      }
-      header h1 {
-        font-size: 1.8rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      .service-card, .testimonial-card, .blog-post {
-        padding: 1rem;
-      }
-      form {
-        padding: 1rem;
-      }
+
+    /* =========================
+       GLOBAL SECTIONS
+    ========================= */
+
+    .section {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 80px 20px;
     }
-.header-image {
-  max-width: 100%;
-  height: auto;
-  margin: 1rem auto 0;
-  display: block;
-}
+
+    .section-light {
+      background: white;
+      max-width: none;
+    }
+
+    .section-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--brown-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* =========================
+       PRESENTATION
+    ========================= */
+
+    .presentation {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .presentation h2 {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      color: var(--brown-dark);
+      margin-bottom: 20px;
+    }
+
+    .presentation p {
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    /* =========================
+       ADVANTAGES
+    ========================= */
+
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .advantage-card {
+      background: white;
+      padding: 30px 22px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .advantage-icon {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    .advantage-card h3 {
+      color: var(--brown-dark);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .advantage-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-group {
+      margin-bottom: 55px;
+    }
+
+    .services-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .services-group-title {
+      color: var(--brown-dark);
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px 25px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease;
+      border: 1px solid rgba(140, 110, 75, 0.08);
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-icon {
+      font-size: 2.1rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      color: var(--brown-dark);
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+    }
+
+    .service-price {
+      font-size: 1.45rem;
+      font-weight: bold;
+      color: var(--brown-light);
+      margin-top: auto;
+      margin-bottom: 18px;
+    }
 
     .btn-service {
-      display: inline-block;
-      margin-top: 1em;
-      background-color: #7c4b26; /* marron */
-      color: #fff;
-      padding: 0.4em 1em;
-      font-size: 0.9em;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 500;
-      transition: background-color 0.2s ease;
+      display: block;
+      text-align: center;
+      background: var(--brown);
+      color: white;
+      padding: 11px 18px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: 0.25s ease;
     }
 
     .btn-service:hover {
-      background-color: #5e371c;
+      background: var(--brown-dark);
+      transform: translateY(-2px);
     }
 
-.fade-slide-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-}
+    /* =========================
+       OFFRES
+    ========================= */
 
-.fade-slide-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .offers-section {
+      background: var(--cream-dark);
+    }
 
-    /* Animation Pourquoi nous choisir */
-#avantages ul li {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-#avantages ul li.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-    
+    .offer-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
 
-    /* LOGO OISEAU */
+    .offer-card h3 {
+      color: var(--brown-dark);
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
 
-.logo-oiseau {
-  width: 140px;
-  position: absolute;
-  top: 15px;
-  left: 30px;
-  z-index: 10;
-  animation: envol 2s ease-out forwards;
-}
+    .offer-price {
+      color: var(--brown-light);
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
 
-@keyframes envol {
-  0% {
-    transform: translate(-300px, -200px) rotate(-20deg) scale(0.6);
-    opacity: 0;
-  }
+    .offers-button {
+      text-align: center;
+      margin-top: 35px;
+    }
 
-  100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-    opacity: 1;
-  }
-}
+    .main-button {
+      display: inline-block;
+      background: var(--brown);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
 
-@media (max-width: 600px) {
-  .logo-oiseau {
-    width: 70px;
-    top: 10px;
-    left: 10px;
-  }
-}
+    .main-button:hover {
+      background: var(--brown-dark);
+      transform: translateY(-3px);
+    }
 
-</style>   
+    /* =========================
+       COMMENT ÇA MARCHE
+    ========================= */
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      padding: 20px;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: var(--brown);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .step h3 {
+      color: var(--brown-dark);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    /* =========================
+       A PROPOS
+    ========================= */
+
+    .about-box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+
+    .about-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       TESTIMONIALS
+    ========================= */
+
+    .testimonials-section {
+      background: var(--cream-dark);
+    }
+
+    .testimonial-container {
+      max-width: 750px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 210px;
+    }
+
+    .testimonial-slide {
+      position: absolute;
+      inset: 0;
+      background: white;
+      border-radius: var(--radius);
+      padding: 35px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+
+    .testimonial-slide.active {
+      opacity: 1;
+    }
+
+    .testimonial-stars {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      color: var(--brown-dark);
+      font-weight: bold;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq-container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 15px rgba(67, 48, 34, 0.07);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      border: none;
+      background: white;
+      padding: 20px 22px;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--brown-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .faq-question:hover {
+      background: #faf7f4;
+    }
+
+    .faq-symbol {
+      font-size: 1.3rem;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 22px 20px;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-symbol {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .faq-answer li {
+      margin-bottom: 5px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-section {
+      background: white;
+    }
+
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--cream);
+      padding: 35px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      color: var(--brown-dark);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #d8cec4;
+      border-radius: 9px;
+      padding: 13px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: white;
+      color: var(--text);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--brown-light);
+      box-shadow: 0 0 0 3px rgba(140, 110, 75, 0.12);
+    }
+
+    .contact-submit {
+      width: 100%;
+      border: none;
+      background: var(--brown);
+      color: white;
+      padding: 14px;
+      border-radius: 9px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .contact-submit:hover {
+      background: var(--brown-dark);
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================= */
+
+    .final-cta {
+      background: var(--brown-dark);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .final-cta p {
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #443322;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-nav {
+      margin-top: 15px;
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      transition: 0.25s ease;
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.08);
+    }
+
+    .whatsapp-button img {
+      width: 34px;
+      height: 34px;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .advantages-grid,
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid,
+      .offers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        min-height: 600px;
+        padding: 100px 20px 60px;
+      }
+
+      .logo-oiseau {
+        width: 75px;
+        top: 10px;
+        left: 10px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: -1px;
+      }
+
+      .hero-slogan {
+        font-size: 1.2rem;
+      }
+
+      .hero-services {
+        line-height: 1.8;
+      }
+
+      nav.main-nav {
+        gap: 2px;
+        padding: 8px 6px;
+      }
+
+      nav.main-nav a {
+        font-size: 0.78rem;
+        padding: 7px 8px;
+      }
+
+      .section {
+        padding: 60px 16px;
+      }
+
+      .advantages-grid,
+      .services-grid,
+      .offers-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box,
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .testimonial-container {
+        min-height: 260px;
+      }
+
+      .testimonial-slide {
+        padding: 25px 20px;
+      }
+
+      .whatsapp-button {
+        width: 52px;
+        height: 52px;
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .whatsapp-button img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <h1>Fortis Gestion</h1>
-  <p>Simplifiez votre administratif, concentrez-vous sur votre activité</p>
-  <img src="Gestion1.png" alt="Fortis Gestion" class="logo-oiseau" />
-</header>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header>
+
+    <img
+      src="Gestion1.png"
+      alt="Fortis Gestion"
+      class="logo-oiseau"
+    />
+
+    <div class="hero-content">
+
+      <h1>Fortis Gestion</h1>
+
+      <p class="hero-slogan">
+        Simplifiez votre administratif, concentrez-vous sur votre activité
+      </p>
+
+      <p class="hero-services">
+        Création d'entreprise • Comptabilité • Gestion • RH • Digital
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="hero-btn hero-btn-primary">
+          Demander un devis
+        </a>
+
+        <a href="#services" class="hero-btn hero-btn-secondary">
+          Découvrir nos services
+        </a>
+      </div>
+
+    </div>
+
+  </header>
 
 
-  <nav>
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav class="main-nav">
+
     <a href="#services">Services</a>
     <a href="#avantages">Pourquoi nous choisir</a>
-    <a href="#faq">FAQ</a>
+    <a href="#offres">Tarifs</a>
+    <a href="#fonctionnement">Comment ça marche</a>
+    <a href="#apropos">À propos</a>
     <a href="#temoignages">Témoignages</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
+
   </nav>
 
+
   <main>
-<section id="presentation" tabindex="0" class="fade-slide-up" style="font-size: 1.2rem; max-width: 800px; margin: 2rem auto; text-align: center; color: #3a2c24;">
-  <p>
-    Fortis Gestion accompagne particuliers et professionnels avec un suivi personnalisé.<br><br>
-    Que vous soyez en création, en développement ou simplement à la recherche de simplicité, nous sommes là pour vous aider à gagner du temps et de la sérénité.
-  </p>
-</section>
 
+    <!-- =========================
+         PRESENTATION
+    ========================= -->
 
-<script>
-  function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.bottom >= 0
-    );
-  }
+    <section class="section fade-up">
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const presentation = document.getElementById('presentation');
+      <div class="presentation">
 
-    function checkVisibility() {
-      if (isElementInViewport(presentation)) {
-        presentation.classList.add('visible');
-        window.removeEventListener('scroll', checkVisibility);
-      }
-    }
+        <h2>Vous avez un projet ? Nous vous aidons à le concrétiser.</h2>
 
-    window.addEventListener('scroll', checkVisibility);
-    // Check immediately in case element is already visible on load
-    checkVisibility();
-  });
-</script>
+        <p>
+          Fortis Gestion accompagne entrepreneurs, indépendants et TPE
+          dans leurs démarches administratives, comptables, RH et digitales.
+          Notre objectif : vous faire gagner du temps avec un accompagnement
+          simple, accessible et personnalisé, 100 % en ligne ou en visio.
+        </p>
 
-
-    
-<section id="services" tabindex="0">
-  <h2>Nos services</h2>
-
-  <!-- Groupe : Création & accompagnement -->
-  <div class="services-group">
-    <h3>Accompagnement à la création & à la transformation digitale</h3>
-    <div class="services">
-      <div class="service-card" tabindex="0">
-        <h4>Business plan & prévisionnel</h4>
-        <p>Accompagnement pour financement ou Pôle emploi</p>
-        <p>Construction d’un prévisionnel financier</p>
-        <br>
-        <strong>À partir de 59 €</strong>
-        <a href="business-plan-previsionnel.html" class="btn-service">Savoir plus</a>
       </div>
 
-      <div class="service-card" tabindex="0">
-        <h4>Création et clôture d’entreprise</h4>
-        <p>Déclaration</p>
-        <p>Conseil sur le choix d’activité, régime fiscal et social</p>
-        <p>Rédaction des documents de dissolution</p>
-        <p>Dépôt au greffe ou en ligne</p>
-        <p>Assistance jusqu’à la radiation officielle</p>
-        <br>
-        <br>
-        <strong>À partir de 69 €</strong>
-        <a href="creation-entreprise.html" class="btn-service">Savoir plus</a>
+    </section>
+
+
+    <!-- =========================
+         POURQUOI NOUS CHOISIR
+    ========================= -->
+
+    <section id="avantages" class="section section-light">
+
+      <div class="section-inner">
+
+        <div class="section-heading fade-up">
+
+          <h2>Pourquoi nous choisir ?</h2>
+
+          <p>
+            Un accompagnement pensé pour vous permettre de vous concentrer
+            sur votre activité.
+          </p>
+
+        </div>
+
+
+        <div class="advantages-grid">
+
+          <div class="advantage-card fade-up">
+
+            <div class="advantage-icon">🎓</div>
+
+            <h3>Expertise</h3>
+
+            <p>
+              Une expérience concrète en comptabilité, gestion,
+              administration et accompagnement des entreprises.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card fade-up">
+
+            <div class="advantage-icon">🤝</div>
+
+            <h3>Accompagnement personnalisé</h3>
+
+            <p>
+              Une approche adaptée à votre situation, votre projet
+              et vos besoins.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card fade-up">
+
+            <div class="advantage-icon">💻</div>
+
+            <h3>100 % en ligne</h3>
+
+            <p>
+              Échangez avec nous à distance, par e-mail ou en visio,
+              où que vous soyez.
+            </p>
+
+          </div>
+
+
+          <div class="advantage-card fade-up">
+
+            <div class="advantage-icon">💰</div>
+
+            <h3>Tarifs transparents</h3>
+
+            <p>
+              Des offres accessibles et clairement présentées,
+              adaptées notamment aux créateurs et petites entreprises.
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="service-card" tabindex="0">
-        <h4>Création de page internet</h4>
-        <p>Design professionnel et responsive</p>
-        <p>Formulaire de contact intégré</p>
-        <p>Nom de domaine et hébergement inclus</p>
-        <strong>À partir de 99 €</strong>
-        <a href="site-internet.html" class="btn-service">Savoir plus</a>
-      </div>
-    </div>
-  </div>
-  
+    </section>
 
-  <!-- Groupe : Gestion administrative & comptable -->
-  <div class="services-group">
-    <h3>Gestion administrative & comptable</h3>
-    <div class="services">
-      <div class="service-card" tabindex="0">
-        <h4>Assistance administrative</h4>
-        <p>Relances clients et fournisseurs</p>
-        <p>Rédaction de courriers</p>
-        <p>Déclarations de chiffre d’affaires</p>
-        <strong>À partir de 29 €</strong>
-        <a href="assistance-administrative.html" class="btn-service">Savoir plus</a>
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section id="services" class="section">
+
+      <div class="section-heading fade-up">
+
+        <h2>Nos services</h2>
+
+        <p>
+          Des solutions pratiques pour vous accompagner dans chaque étape
+          de votre activité.
+        </p>
+
       </div>
 
-      <div class="service-card" tabindex="0">
-        <h4>Suivi comptable</h4>
-        <p>Tenue de comptabilité (micro / réel)</p>
-        <p>Déclarations fiscales (TVA, CA, etc.)</p>
-        <p>Conseils en gestion financière</p>
-        <strong>Sur devis</strong>
-        <a href="suivi-comptable.html" class="btn-service">Savoir plus</a>
+
+      <!-- CREATION -->
+
+      <div class="services-group">
+
+        <h3 class="services-group-title">
+          Création & développement
+        </h3>
+
+        <div class="services-grid">
+
+          <article class="service-card fade-up">
+
+            <div class="service-icon">📊</div>
+
+            <h3>Business plan & prévisionnel</h3>
+
+            <p>
+              Structurez votre projet, présentez vos objectifs et préparez
+              vos prévisions financières.
+            </p>
+
+            <div class="service-price">
+              À partir de 59 €
+            </div>
+
+            <a
+              href="business-plan-previsionnel.html"
+              class="btn-service"
+            >
+              En savoir plus
+            </a>
+
+          </article>
+
+
+          <article class="service-card fade-up">
+
+            <div class="service-icon">🚀</div>
+
+            <h3>Création & clôture d'entreprise</h3>
+
+            <p>
+              Accompagnement dans les principales démarches administratives
+              liées à la création ou à la clôture de votre entreprise.
+            </p>
+
+            <div class="service-price">
+              À partir de 69 €
+            </div>
+
+            <a
+              href="creation-entreprise.html"
+              class="btn-service"
+            >
+              En savoir plus
+            </a>
+
+          </article>
+
+
+          <article class="service-card fade-up">
+
+            <div class="service-icon">🌐</div>
+
+            <h3>Création de page internet</h3>
+
+            <p>
+              Une présence professionnelle en ligne avec une page vitrine
+              adaptée à votre activité.
+            </p>
+
+            <div class="service-price">
+              À partir de 99 €
+            </div>
+
+            <a
+              href="site-internet.html"
+              class="btn-service"
+            >
+              En savoir plus
+            </a>
+
+          </article>
+
+        </div>
+
       </div>
-    </div>
-  </div>
 
-  <!-- Groupe : Ressources humaines -->
-  <div class="services-group">
-    <h3>Ressources humaines</h3>
-    <div class="services">
-      <div class="service-card" tabindex="0">
-        <h4>Assistance RH</h4>
-        <p>Édition de bulletins de paie</p>
-        <p>Rédaction de contrats de travail</p>
-        <p>Attestations et documents salariés</p>
-        <strong>À partir de 29 €</strong>
-        <a href="ressources-humaines.html" class="btn-service">Savoir plus</a>
+
+      <!-- ADMINISTRATIF / COMPTABLE -->
+
+      <div class="services-group">
+
+        <h3 class="services-group-title">
+          Gestion administrative & comptable
+        </h3>
+
+        <div class="services-grid">
+
+          <article class="service-card fade-up">
+
+            <div class="service-icon">📁</div>
+
+            <h3>Assistance administrative</h3>
+
+            <p>
+              Aide dans vos démarches, documents administratifs,
+              organisation et gestion courante.
+            </p>
+
+            <div class="service-price">
+              À partir de 29 €
+            </div>
+
+            <a
+              href="assistance-administrative.html"
+              class="btn-service"
+            >
+              En savoir plus
+            </a>
+
+          </article>
+
+
+          <article class="service-card fade-up">
+
+            <div class="service-icon">📚</div>
+
+            <h3>Suivi comptable</h3>
+
+            <p>
+              Suivi de votre activité, organisation comptable,
+              déclarations et accompagnement selon vos besoins.
+            </p>
+
+            <div class="service-price">
+              Sur devis
+            </div>
+
+            <a
+              href="suivi-comptable.html"
+              class="btn-service"
+            >
+              En savoir plus
+            </a>
+
+          </article>
+
+        </div>
+
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="avantages" tabindex="0">
-  <section class="bg-white py-12 px-4 sm:px-8 lg:px-16">
-    <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">Pourquoi nous choisir ?</h2>
-    <ul class="space-y-4 text-gray-700 text-base">
-      <li class="">🎓 Diplômés en comptabilité, gestion et droit des affaires</li>
-      <li class="">🤝 Accompagnement humain, pédagogique et réactif</li>
-      <li class="">📊 Expérience concrète en création, gestion et développement d'entreprises</li>
-      <li class="">🛠️ Suivi personnalisé à chaque étape : statuts, démarches, comptabilité, fiscalité</li>
-      <li class="">💻 100% en ligne ou en visio selon vos préférences</li>
-      <li class="">💰 Tarifs transparents, adaptés aux petits budgets et créateurs débutants</li>
-      <li class="">🧘 Notre objectif : vous aider à entreprendre en toute sérénité</li>
-    </ul>
-  </section>
-</section>
 
 
+      <!-- RH -->
 
-<script>
-  function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.bottom >= 0
-    );
-  }
+      <div class="services-group">
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('#avantages ul li');
+        <h3 class="services-group-title">
+          Ressources humaines
+        </h3>
 
-    function animateItems() {
-      if (items.length === 0) return;
+        <div class="services-grid">
 
-      // On vérifie si le premier élément est visible (la liste entière)
-      if (isElementInViewport(items[0])) {
-        items.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('visible');
-          }, index * 400); // délai en cascade, 200ms entre chaque ligne
-        });
-        window.removeEventListener('scroll', animateItems);
-      }
-    }
+          <article class="service-card fade-up">
 
-    window.addEventListener('scroll', animateItems);
-    // Vérif immédiate au chargement
-    animateItems();
-  });
-</script>
+            <div class="service-icon">👥</div>
 
-    
-  <section id="faq">
-  <h2>FAQ - Questions fréquentes</h2>
+            <h3>Assistance RH</h3>
 
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Combien de temps faut-il pour créer mon entreprise ?
-        <span class="faq-arrow">+</span>
+            <p>
+              Accompagnement administratif pour vos besoins liés
+              aux salariés et à la gestion RH.
+            </p>
+
+            <div class="service-price">
+              À partir de 29 €
+            </div>
+
+            <a
+              href="ressources-humaines.html"
+              class="btn-service"
+            >
+              En savoir plus
+            </a>
+
+          </article>
+
+        </div>
+
       </div>
-      <div class="faq-answer">
-        Cela dépend de la nature de votre activité et du statut juridique choisi. En général, une entreprise peut être créée en <strong>48h à 7 jours ouvrés</strong> après la validation du dossier complet. Nous nous occupons de tout pour accélérer la procédure.
+
+    </section>
+
+
+    <!-- =========================
+         OFFRES / TARIFS
+    ========================= -->
+
+    <section id="offres" class="section offers-section">
+
+      <div class="section-inner">
+
+        <div class="section-heading fade-up">
+
+          <h2>Nos offres</h2>
+
+          <p>
+            Découvrez rapidement nos principales prestations.
+          </p>
+
+        </div>
+
+
+        <div class="offers-grid">
+
+          <div class="offer-card fade-up">
+            <h3>Business plan & prévisionnel</h3>
+            <div class="offer-price">59 €</div>
+          </div>
+
+
+          <div class="offer-card fade-up">
+            <h3>Création & clôture d'entreprise</h3>
+            <div class="offer-price">69 €</div>
+          </div>
+
+
+          <div class="offer-card fade-up">
+            <h3>Création de page internet</h3>
+            <div class="offer-price">99 €</div>
+          </div>
+
+
+          <div class="offer-card fade-up">
+            <h3>Assistance administrative</h3>
+            <div class="offer-price">29 €</div>
+          </div>
+
+
+          <div class="offer-card fade-up">
+            <h3>Assistance RH</h3>
+            <div class="offer-price">29 €</div>
+          </div>
+
+
+          <div class="offer-card fade-up">
+            <h3>Suivi comptable</h3>
+            <div class="offer-price">Sur devis</div>
+          </div>
+
+        </div>
+
+
+        <div class="offers-button">
+
+          <a href="#services" class="main-button">
+            Voir toutes les prestations
+          </a>
+
+        </div>
+
       </div>
-    </div>
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Quels sont les documents à fournir pour créer mon entreprise ?
-        <span class="faq-arrow">+</span>
+
+    </section>
+
+
+    <!-- =========================
+         COMMENT ÇA MARCHE
+    ========================= -->
+
+    <section id="fonctionnement" class="section">
+
+      <div class="section-heading fade-up">
+
+        <h2>Comment ça marche ?</h2>
+
+        <p>
+          Un fonctionnement simple pour avancer rapidement.
+        </p>
+
       </div>
-      <div class="faq-answer">
-        Cela varie selon la forme juridique, mais les documents les plus courants sont :
-        <ul>
-          <li>Pièce d’identité valide</li>
-          <li>Justificatif de domicile</li>
-          <li>Attestation de non-condamnation</li>
-          <li>Bail ou justificatif de domiciliation</li>
-          <li>Capital social (si applicable)</li>
-        </ul>
-        Nous vous accompagnons pour réunir tous les justificatifs nécessaires.
+
+
+      <div class="steps-grid">
+
+        <div class="step fade-up">
+
+          <div class="step-number">01</div>
+
+          <h3>Contact</h3>
+
+          <p>
+            Vous nous présentez votre projet et vos besoins.
+          </p>
+
+        </div>
+
+
+        <div class="step fade-up">
+
+          <div class="step-number">02</div>
+
+          <h3>Analyse</h3>
+
+          <p>
+            Nous étudions votre situation et identifions les solutions
+            adaptées.
+          </p>
+
+        </div>
+
+
+        <div class="step fade-up">
+
+          <div class="step-number">03</div>
+
+          <h3>Proposition</h3>
+
+          <p>
+            Vous recevez une proposition claire correspondant
+            à votre demande.
+          </p>
+
+        </div>
+
+
+        <div class="step fade-up">
+
+          <div class="step-number">04</div>
+
+          <h3>Accompagnement</h3>
+
+          <p>
+            Nous avançons ensemble jusqu'à la réalisation de votre projet.
+          </p>
+
+        </div>
+
       </div>
-    </div>
 
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Faut-il un capital minimum pour créer une société ?
-        <span class="faq-arrow">+</span>
+    </section>
+
+
+    <!-- =========================
+         A PROPOS
+    ========================= -->
+
+    <section id="apropos" class="section section-light">
+
+      <div class="section-inner">
+
+        <div class="section-heading fade-up">
+
+          <h2>Qui sommes-nous ?</h2>
+
+        </div>
+
+
+        <div class="about-box fade-up">
+
+          <p>
+            Fortis Gestion est un service d'accompagnement destiné
+            aux entrepreneurs, indépendants et petites entreprises.
+          </p>
+
+          <p>
+            Notre mission est de simplifier les tâches administratives,
+            comptables, RH et digitales afin que vous puissiez consacrer
+            davantage de temps au développement de votre activité.
+          </p>
+
+          <p>
+            Chaque demande est étudiée selon votre situation et vos
+            objectifs, avec une approche simple, claire et accessible.
+          </p>
+
+        </div>
+
       </div>
-      <div class="faq-answer">
-        La loi n’impose pas de minimum pour une SASU ou une EURL : <strong>1 euro suffit</strong> ! Toutefois, un capital plus élevé peut rassurer vos partenaires. Nous vous conseillons selon votre projet.
+
+    </section>
+
+
+    <!-- =========================
+         TEMOIGNAGES
+         
+         À conserver uniquement s'il
+         s'agit de vrais témoignages clients.
+    ========================= -->
+
+    <section id="temoignages" class="section testimonials-section">
+
+      <div class="section-inner">
+
+        <div class="section-heading fade-up">
+
+          <h2>Ils nous font confiance</h2>
+
+          <p>
+            Quelques retours de clients.
+          </p>
+
+        </div>
+
+
+        <div class="testimonial-container">
+
+          <div class="testimonial-slide active">
+
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              « Un accompagnement sérieux et efficace. Tout a été
+              beaucoup plus simple que prévu. »
+            </p>
+
+            <div class="testimonial-author">
+              Julie M.
+            </div>
+
+          </div>
+
+
+          <div class="testimonial-slide">
+
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              « Très disponible et à l'écoute. J'ai pu avancer
+              rapidement dans mes démarches. »
+            </p>
+
+            <div class="testimonial-author">
+              Karim L.
+            </div>
+
+          </div>
+
+
+          <div class="testimonial-slide">
+
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              « Des explications claires et un vrai gain de temps
+              pour la gestion de mon activité. »
+            </p>
+
+            <div class="testimonial-author">
+              Sophie D.
+            </div>
+
+          </div>
+
+
+          <div class="testimonial-slide">
+
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              « Service professionnel, réactif et très pratique
+              à distance. »
+            </p>
+
+            <div class="testimonial-author">
+              Laura T.
+            </div>
+
+          </div>
+
+
+          <div class="testimonial-slide">
+
+            <div class="testimonial-stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              « Une aide précieuse pour mes démarches administratives
+              et la gestion de mon entreprise. »
+            </p>
+
+            <div class="testimonial-author">
+              Michel R.
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
-    </div>
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Dois-je avoir une adresse de siège social pour créer mon entreprise ?
-        <span class="faq-arrow">+</span>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
+    <section id="faq" class="section">
+
+      <div class="section-heading fade-up">
+
+        <h2>Questions fréquentes</h2>
+
+        <p>
+          Les réponses aux questions que vous vous posez avant de vous lancer.
+        </p>
+
       </div>
-      <div class="faq-answer">
-        Oui, toute entreprise doit avoir une adresse de siège social. Si vous ne disposez pas de local, nous proposons également des <strong>solutions de domiciliation</strong>.
+
+
+      <div class="faq-container">
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Combien de temps faut-il pour créer mon entreprise ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Le délai dépend notamment de la forme juridique choisie,
+              de la complétude du dossier et des délais de traitement
+              des organismes concernés.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Quels documents faut-il fournir ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Les documents varient selon votre situation et la forme
+              de votre entreprise. Ils peuvent notamment comprendre :
+            </p>
+
+            <ul>
+              <li>Pièce d'identité</li>
+              <li>Justificatif de domicile</li>
+              <li>Informations relatives au siège</li>
+              <li>Documents nécessaires à l'immatriculation</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Faut-il un capital minimum pour créer une entreprise ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Le capital minimum dépend de la forme juridique choisie.
+              Nous pouvons vous aider à identifier la solution adaptée
+              à votre projet.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Puis-je créer mon entreprise tout en étant salarié ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Dans de nombreuses situations, il est possible de cumuler
+              une activité salariée et une activité indépendante.
+              Les règles dépendent notamment de votre contrat de travail
+              et de votre situation.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Puis-je créer une entreprise si je suis demandeur d'emploi ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Oui, selon votre situation, certains dispositifs peuvent
+              accompagner la création ou la reprise d'une activité.
+              Les conditions doivent être vérifiées au cas par cas.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Proposez-vous un suivi comptable ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Oui. Nous pouvons vous accompagner dans l'organisation
+              et le suivi de votre activité comptable et administrative,
+              selon vos besoins et la nature de votre entreprise.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Travaillez-vous uniquement à distance ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Fortis Gestion fonctionne principalement à distance,
+              par e-mail et en visioconférence, afin de pouvoir
+              accompagner les clients où qu'ils se trouvent.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="faq-item fade-up">
+
+          <button class="faq-question" type="button">
+
+            <span>
+              Comment obtenir un devis ?
+            </span>
+
+            <span class="faq-symbol">+</span>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Il vous suffit de nous contacter via le formulaire
+              ci-dessous en indiquant votre projet et vos besoins.
+              Nous pourrons ensuite vous orienter vers la prestation
+              adaptée.
+            </p>
+
+          </div>
+
+        </div>
+
+
       </div>
-    </div>
 
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Puis-je créer mon entreprise seul ?
-        <span class="faq-arrow">+</span>
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact" class="section contact-section">
+
+      <div class="section-heading fade-up">
+
+        <h2>Parlons de votre projet</h2>
+
+        <p>
+          Décrivez-nous votre besoin et nous vous répondrons rapidement.
+        </p>
+
       </div>
-      <div class="faq-answer">
-        Absolument. Vous pouvez opter pour une <strong>SASU</strong> ou une <strong>EURL</strong>, qui sont des formes juridiques unipersonnelles. Nous vous orientons selon votre projet.
-      </div>
-    </div>
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Puis-je créer une entreprise si je suis au chômage ?
-        <span class="faq-arrow">+</span>
-      </div>
-      <div class="faq-answer">
-        Oui, vous pouvez cumuler certains droits (comme l’ARCE ou le maintien partiel de l’ARE) tout en créant votre activité. Nous vous aidons à optimiser cette transition.
-      </div>
-    </div>
 
-    <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-      <div class="faq-question">
-        Puis-je créer une entreprise si je suis étudiant ou salarié ?
-        <span class="faq-arrow">+</span>
-      </div>
-      <div class="faq-answer">
-        Oui, c’est possible. Il existe des règles spécifiques selon votre contrat ou votre école, mais dans la majorité des cas, vous pouvez entreprendre légalement en parallèle.
-      </div>
-    </div>
 
-  <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-    <div class="faq-question">
-      Quelle est la durée moyenne d'accompagnement ?
-      <span class="faq-arrow">+</span>
-    </div>
-    <div class="faq-answer">
-      L’accompagnement varie selon les besoins, en moyenne entre 1 et 3 mois pour une création d’entreprise complète.
-    </div>
-  </div>
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/xpwrolzd"
+        method="POST"
+        novalidate
+        class="contact-form fade-up"
+      >
 
-  <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-    <div class="faq-question">
-      Est-ce que je peux bénéficier d’aides ou subventions ?
-      <span class="faq-arrow">+</span>
-    </div>
-    <div class="faq-answer">
-      Oui, nous vous informons sur les aides possibles selon votre situation (ACRE, aides Pôle emploi, etc.).
-    </div>
-  </div>
+        <div class="form-group">
 
-<div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-  <div class="faq-question">
-    Comment se passe le suivi comptable ?
-    <span class="faq-arrow">+</span>
-  </div>
-  <div class="faq-answer">
-    Nous proposons un accompagnement comptable adapté aux petites entreprises et auto-entrepreneurs. Concrètement :
-    <ul>
-      <li> Mise à disposition de tableaux de bord simplifiés (Excel/Google Sheets ou logiciel en ligne).</li>
-      <li> Suivi mensuel ou trimestriel des recettes/dépenses, avec alertes personnalisées.</li>
-      <li> Aide à la facturation et classement des justificatifs (papier ou numérique).</li>
-      <li> Préparation des déclarations fiscales (TVA, impôt, cotisations URSSAF) en lien avec votre statut.</li>
-      <li> Mise en relation avec un expert-comptable partenaire si besoin (sans obligation).</li>
-    </ul>
-    L’objectif est de vous rendre autonome tout en restant accompagné et rassuré. Vous n’êtes jamais seul.
-  </div>
-</div>
-  <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-    <div class="faq-question">
-      Comment Fortis Gestion assure-t-il la sécurité de mes informations ?
-      <span class="faq-arrow">+</span>
-    </div>
-    <div class="faq-answer">
-      La protection de vos données est une priorité pour nous. Nous utilisons des technologies de cryptage avancées ainsi que des protocoles stricts pour garantir la confidentialité et la sécurité de toutes vos informations personnelles et professionnelles.
-    </div>
-  </div>
-  <div class="faq-item" tabindex="0" role="button" aria-expanded="false">
-    <div class="faq-question">
-      Comment puis-je obtenir de l'aide ou du soutien ?
-      <span class="faq-arrow">+</span>
-    </div>
-    <div class="faq-answer">
-      Notre équipe est à votre disposition pour répondre à toutes vos questions. Vous pouvez nous contacter facilement par e-mail, téléphone ou via notre formulaire de contact pour un accompagnement rapide et personnalisé.
-    </div>
-  </div>
-</section>
+          <label for="name">
+            Nom
+          </label>
 
-<section id="temoignages" tabindex="0">
-  <h2 style="text-align: center; font-size: 2rem; color: #3a2c24; margin-bottom: 1rem;">Témoignages clients</h2>
-  <div class="testimonial-carousel" id="carousel" style="max-width:700px; margin: 0 auto 2rem; position: relative; overflow: hidden; height: 180px; border-radius: 20px;">
-    <div class="testimonial-slide" style="position:absolute; width:100%; padding:2rem; background:#fff; border-radius:20px; box-shadow:0 4px 20px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
-      <p style="font-size: 1.1rem;">🌟 “Un service impeccable, à l’écoute et très professionnel. J’ai pu lancer mon activité en toute sérénité.”</p>
-      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Julie M.</p>
-    </div>
-    <div class="testimonial-slide" style="position:absolute; width:100%; padding:2rem; background:#fff; border-radius:20px; box-shadow:0 4px 20px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
-      <p style="font-size: 1.1rem;">🌟 “L’accompagnement personnalisé m’a beaucoup aidé à gérer mes démarches administratives. Merci !”</p>
-      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Karim L.</p>
-    </div>
-    <div class="testimonial-slide" style="position:absolute; width:100%; padding:2rem; background:#fff; border-radius:20px; box-shadow:0 4px 20px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
-      <p style="font-size: 1.1rem;">🌟 “Réactif et clair, un vrai partenaire pour mon entreprise. Je recommande sans hésiter.”</p>
-      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Sophie D.</p>
-    </div>
-    <div class="testimonial-slide" style="position:absolute; width:100%; padding:2rem; background:#fff; border-radius:20px; box-shadow:0 4px 20px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
-      <p style="font-size: 1.1rem;">🌟 “Grâce à Fortis Gestion, j’ai pu me concentrer sur mon projet sans me soucier de l’administratif.”</p>
-      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Laura T.</p>
-    </div>
-    <div class="testimonial-slide" style="position:absolute; width:100%; padding:2rem; background:#fff; border-radius:20px; box-shadow:0 4px 20px rgba(106,80,58,0.1); color:#5a4a3d; opacity:0; transition: opacity 1s ease-in-out;">
-      <p style="font-size: 1.1rem;">🌟 “Service professionnel et rapide, je recommande vivement pour la gestion comptable.”</p>
-      <p class="testimonial-author" style="text-align:right; margin-top:1rem; font-weight:600; color:#6a503a;">— Michel R.</p>
-    </div>
-  </div>
-</section>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            autocomplete="name"
+            placeholder="Votre nom"
+          />
 
-<script>
-  const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-  let testimonialCurrent = 0;
+        </div>
 
-  function showTestimonial(index) {
-    testimonialSlides.forEach((slide, i) => {
-      slide.style.opacity = i === index ? '1' : '0';
-      slide.style.zIndex = i === index ? '10' : '1';
-    });
-  }
 
-  showTestimonial(testimonialCurrent);
+        <div class="form-group">
 
-  setInterval(() => {
-    testimonialCurrent =
-      (testimonialCurrent + 1) % testimonialSlides.length;
+          <label for="email">
+            Adresse e-mail
+          </label>
 
-    showTestimonial(testimonialCurrent);
-  }, 5000);
-</script>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="votre@email.com"
+          />
 
-    
-<section id="contact" tabindex="0" class="py-12 bg-gray-50">
-  <h2 class="text-3xl font-semibold text-center mb-8">Contactez-nous</h2>
-  
-<form id="contactForm"
-      action="https://formspree.io/f/xpwrolzd"
-      method="POST"
-      novalidate
-      class="w-full max-w-2xl mx-auto px-4 space-y-6 bg-white p-6 rounded-2xl shadow-lg">
-        
-    <div>
-      <label for="name" class="block mb-2 font-medium">Nom</label>
-      <input type="text" id="name" name="name" required autocomplete="name"
-             class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-    </div>
+        </div>
 
-    <div>
-      <label for="email" class="block mb-2 font-medium">Adresse e-mail</label>
-      <input type="email" id="email" name="email" required autocomplete="email"
-             class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-    </div>
 
-    <div>
-      <label for="message" class="block mb-2 font-medium">Message</label>
-      <textarea id="message" name="message" rows="5" required
-                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    </div>
+        <div class="form-group">
 
-    <button type="submit"
-            class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">
-      Envoyer
-    </button>
-</form>
-</section>
+          <label for="message">
+            Votre projet / votre demande
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            placeholder="Expliquez-nous votre besoin..."
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="contact-submit"
+        >
+          Envoyer ma demande
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL CTA
+    ========================= -->
+
+    <section class="final-cta">
+
+      <h2>Un projet ? Parlons-en.</h2>
+
+      <p>
+        Création, gestion, administratif, RH ou digital :
+        Fortis Gestion vous accompagne.
+      </p>
+
+      <a
+        href="#contact"
+        class="hero-btn hero-btn-primary"
+      >
+        Demander un devis
+      </a>
+
+    </section>
 
   </main>
 
-  <a href="https://wa.me/33651323494" aria-label="Contact WhatsApp" target="_blank" rel="noopener" class="whatsapp-button">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+
+  <!-- =========================
+       WHATSAPP
+  ========================= -->
+
+  <a
+    href="https://wa.me/33651323494"
+    aria-label="Contacter Fortis Gestion sur WhatsApp"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-button"
+  >
+
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp"
+    />
+
   </a>
 
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
-        <p>&copy; 2026 Fortis Gestion – Tous droits réservés</p>
-    <p><a href="mailto:contact@fortis-gestion.fr">contact@fortis-gestion.fr</a></p>
-      <nav>
-<a href="/mentions-legales.html">Mentions légales</a> |  
-<a href="/politique.html">Politique de confidentialité</a>
-  </nav>
+
+    <p>
+      &copy; 2026 Fortis Gestion – Tous droits réservés
+    </p>
+
+    <p>
+      <a href="mailto:contact@fortis-gestion.fr">
+        contact@fortis-gestion.fr
+      </a>
+    </p>
+
+    <div class="footer-nav">
+
+      <a href="/mentions-legales.html">
+        Mentions légales
+      </a>
+
+      &nbsp; | &nbsp;
+
+      <a href="/politique.html">
+        Politique de confidentialité
+      </a>
+
+    </div>
+
   </footer>
 
-<script>
-  // FAQ toggle
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.setAttribute('aria-expanded', 'false');
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       ANIMATIONS AU SCROLL
+    ========================= */
+
+    const animatedElements = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    animatedElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+
+      const button = item.querySelector(".faq-question");
+
+      button.addEventListener("click", () => {
+
+        const isOpen = item.classList.contains("open");
+
+        faqItems.forEach((otherItem) => {
+
+          otherItem.classList.remove("open");
+
+          const otherButton =
+            otherItem.querySelector(".faq-question");
+
+          otherButton.setAttribute("aria-expanded", "false");
+
+        });
+
+        if (!isOpen) {
+
+          item.classList.add("open");
+
+          button.setAttribute("aria-expanded", "true");
+
+        }
+
       });
-      if (!isOpen) {
-        item.classList.add('open');
-        item.setAttribute('aria-expanded', 'true');
-      }
+
     });
 
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        item.click();
-      }
-    });
-  });
 
-  // Form validation + envoi + redirection
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+    /* =========================
+       TEMOIGNAGES
+    ========================= */
 
-    if (!form.checkValidity()) {
-      alert('Veuillez remplir tous les champs correctement.');
-      return;
+    const testimonialSlides =
+      document.querySelectorAll(".testimonial-slide");
+
+    let testimonialCurrent = 0;
+
+    function showTestimonial(index) {
+
+      testimonialSlides.forEach((slide, i) => {
+
+        slide.classList.toggle(
+          "active",
+          i === index
+        );
+
+      });
+
     }
 
-    fetch(form.action, {
-      method: form.method,
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        window.location.href = 'merci.html'; // ✅ Redirection ici
-      } else {
-        alert('Erreur lors de l’envoi du formulaire.');
+    if (testimonialSlides.length > 0) {
+
+      showTestimonial(testimonialCurrent);
+
+      setInterval(() => {
+
+        testimonialCurrent =
+          (testimonialCurrent + 1) %
+          testimonialSlides.length;
+
+        showTestimonial(testimonialCurrent);
+
+      }, 5000);
+
+    }
+
+
+    /* =========================
+       FORMULAIRE FORMSPREE
+    ========================= */
+
+    const form =
+      document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+
+        alert(
+          "Veuillez remplir tous les champs correctement."
+        );
+
+        return;
+
       }
-    }).catch(error => {
-      alert('Erreur réseau.');
+
+      const submitButton =
+        form.querySelector("button[type='submit']");
+
+      submitButton.disabled = true;
+
+      submitButton.textContent =
+        "Envoi en cours...";
+
+      try {
+
+        const response = await fetch(
+          form.action,
+          {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+              "Accept": "application/json"
+            }
+          }
+        );
+
+        if (response.ok) {
+
+          window.location.href =
+            "merci.html";
+
+        } else {
+
+          alert(
+            "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
+          );
+
+          submitButton.disabled = false;
+
+          submitButton.textContent =
+            "Envoyer ma demande";
+
+        }
+
+      } catch (error) {
+
+        alert(
+          "Une erreur réseau est survenue. Veuillez réessayer."
+        );
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "Envoyer ma demande";
+
+      }
+
     });
-  });
-</script>
+
+  </script>
+
 </body>
 </html>
-
 
 
 
