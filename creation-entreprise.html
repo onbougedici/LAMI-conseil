@@ -1,81 +1,817 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Création & Clôture d'entreprise | Fortis Gestion</title>
-  <meta name="description" content="Fortis Gestion vous accompagne pour la création et la clôture d'entreprise : statuts, formalités, immatriculation, dissolution et radiation.">
-  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Fortis Gestion vous accompagne dans les démarches de création et de cessation d'activité : choix du statut, formalités, immatriculation, dissolution et radiation.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f1ec;
+      color: #3a2c24;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HERO */
+    .service-hero {
+      background: #ffffff;
+      padding: 70px 20px 80px;
+      text-align: center;
+      border-bottom: 1px solid #eadfd5;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: #f1e8df;
+      color: #6a503a;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .service-hero h1 {
+      margin: 0 auto 18px;
+      max-width: 850px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: #5b452e;
+    }
+
+    .service-hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: 1.15rem;
+      color: #6a5a4e;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #6a503a;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #5b452e;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #6a503a;
+      color: #6a503a;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #6a503a;
+      color: #ffffff;
+    }
+
+    /* GENERAL */
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: #5b452e;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: #6d625b;
+    }
+
+    /* INTRO */
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.08rem;
+    }
+
+    .intro strong {
+      color: #5b452e;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #eadfd5;
+      box-shadow: 0 5px 18px rgba(67, 48, 34, 0.06);
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      background: #f1e8df;
+      font-size: 1.3rem;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #5b452e;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #6d625b;
+      font-size: 0.95rem;
+    }
+
+    /* PROCESS */
+    .process {
+      background: #ffffff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 25px 18px;
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #6a503a;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      color: #5b452e;
+    }
+
+    .step p {
+      margin: 0;
+      color: #6d625b;
+      font-size: 0.93rem;
+    }
+
+    /* OFFERS */
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .offer-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 18px;
+      border: 2px solid #d9c8b8;
+      box-shadow: 0 8px 25px rgba(67, 48, 34, 0.08);
+      text-align: center;
+    }
+
+    .offer-card h3 {
+      margin: 0 0 10px;
+      color: #5b452e;
+      font-size: 1.4rem;
+    }
+
+    .price {
+      margin: 10px 0 20px;
+      color: #6a503a;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .offer-card ul {
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+    }
+
+    .offer-card li {
+      margin: 10px 0;
+    }
+
+    .offer-card p {
+      color: #6d625b;
+      font-size: 0.92rem;
+    }
+
+    /* TARGET */
+    .target {
+      background: #ffffff;
+    }
+
+    .target-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .target-box p {
+      color: #6d625b;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+      background: #ffffff;
+      border: 1px solid #eadfd5;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: #5b452e;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      color: #6d625b;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* CTA */
+    .final-cta {
+      padding: 75px 20px;
+      background: #6a503a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    .final-cta p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      opacity: 0.92;
+    }
+
+    .final-cta .btn {
+      background: #ffffff;
+      color: #5b452e;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 20px;
+      background: #5b452e;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .offers {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-hero {
+        padding: 55px 20px 60px;
+      }
+
+      .service-hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-card {
+        padding: 30px 22px;
+      }
+    }
+  </style>
+
 </head>
 
-<body style="font-family: Arial, sans-serif; padding: 2em; background-color: #f8f8f8; color: #2e3b4e;">
+<body>
 
-  <header style="text-align: center; margin-bottom: 3em;">
-    <h1>Création & Clôture d’entreprise</h1>
-    <p>Fortis Gestion vous accompagne à chaque étape de la vie de votre société</p>
+  <!-- HERO -->
+
+  <header class="service-hero">
+    <div class="hero-label">Fortis Gestion</div>
+
+```
+<h1>Création &amp; Clôture d'entreprise</h1>
+
+<p>
+  De la création de votre activité à sa cessation, nous vous accompagnons
+  dans la préparation et les principales démarches administratives.
+</p>
+
+<div class="hero-buttons">
+  <a href="index.html#contact" class="btn btn-primary">
+    Demander un devis
+  </a>
+
+  <a href="index.html#services" class="btn btn-secondary">
+    Retour aux services
+  </a>
+</div>
+```
+
   </header>
 
-  <!-- SECTION CREATION -->
-  <section style="max-width: 900px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 3em;">
-    <h2>Création d’entreprise</h2>
+  <!-- INTRO -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Les principales étapes de la vie de votre entreprise</h2>
+  </div>
+
+  <div class="intro">
     <p>
-      Chez <strong>Fortis Gestion</strong>, nous accompagnons les futurs entrepreneurs de l’idée à l’immatriculation. 
-      Que vous lanciez une activité individuelle, une société ou une micro-entreprise, nous vous guidons à chaque étape.
+      La création d'une entreprise implique plusieurs choix et formalités :
+      statut juridique, rédaction des documents, démarches administratives
+      et immatriculation.
     </p>
 
-    <h3>Nos prestations :</h3>
-    <ul>
-      <li>✅ Choix du statut juridique (SASU, SARL, EI...)</li>
-      <li>✅ Rédaction des statuts et formalités administratives</li>
-      <li>✅ Création et dépôt du dossier au greffe</li>
-      <li>✅ Aide à la domiciliation et à l’ouverture du compte professionnel</li>
-      <li>✅ Élaboration du business plan et du prévisionnel</li>
-    </ul>
-
     <p>
-      Avec Fortis Gestion, vous bénéficiez d’un interlocuteur unique, réactif et à l’écoute de vos besoins, 
-      pour une création d’entreprise simple, rapide et sécurisée.
+      À l'inverse, la cessation d'une activité nécessite également
+      plusieurs démarches selon la forme juridique et la situation de
+      l'entreprise.
     </p>
 
-    <a href="index.html#contact"
-       style="display:inline-block; margin-top: 2em; background-color: #0077cc; color: #fff; padding: 0.8em 1.5em; text-decoration: none; border-radius: 5px; font-weight: bold;">
-      Créer mon entreprise
-    </a>
+    <p>
+      <strong>Fortis Gestion</strong> vous accompagne dans la préparation
+      de ces différentes étapes et vous aide à identifier les formalités
+      nécessaires à votre situation.
+    </p>
+  </div>
+
+</div>
+```
+
   </section>
 
-  <!-- SECTION CLOTURE -->
-  <section style="max-width: 900px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <h2>Clôture d’entreprise</h2>
+  <!-- PRESTATIONS -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Nos prestations</h2>
     <p>
-      Que ce soit par choix stratégique, départ en retraite ou fin d’activité, la clôture d’une entreprise requiert des démarches administratives précises.
-      <strong>Fortis Gestion</strong> vous accompagne dans la dissolution, liquidation et radiation de votre société, en toute sérénité.
+      Des prestations adaptées à votre situation et à la nature de votre
+      entreprise.
     </p>
+  </div>
 
-    <h3>Nos services de clôture :</h3>
-    <ul>
-      <li>✅ Rédaction des procès-verbaux de dissolution et liquidation</li>
-      <li>✅ Publication de l’annonce légale</li>
-      <li>✅ Dépôt du dossier de radiation au greffe ou via le guichet unique</li>
-      <li>✅ Clôture des comptes et formalités comptables</li>
-      <li>✅ Suivi complet jusqu’à l’obtention de l’avis de radiation</li>
-    </ul>
+  <div class="cards">
 
-    <p>
-      Nous garantissons une clôture d’activité conforme, rapide et sans erreur. 
-      Nos services sont disponibles dans toute la France, pour les structures de tout type : micro-entreprise, SASU, SARL, etc.
-    </p>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h3>Choix du statut</h3>
+      <p>
+        Échange sur les principales caractéristiques des formes
+        juridiques envisagées selon votre projet.
+      </p>
+    </div>
 
-    <a href="index.html#contact"
-       style="display:inline-block; margin-top: 2em; background-color: #0077cc; color: #fff; padding: 0.8em 1.5em; text-decoration: none; border-radius: 5px; font-weight: bold;">
-      Clôturer mon entreprise
-    </a>
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>Documents de création</h3>
+      <p>
+        Préparation des documents et informations nécessaires aux
+        démarches de création, selon la prestation retenue.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Formalités</h3>
+      <p>
+        Accompagnement dans la préparation et le dépôt des formalités
+        auprès des organismes concernés.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏠</div>
+      <h3>Domiciliation</h3>
+      <p>
+        Informations et accompagnement concernant la domiciliation de
+        votre entreprise et les justificatifs nécessaires.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🔚</div>
+      <h3>Cessation d'activité</h3>
+      <p>
+        Accompagnement dans les démarches liées à la cessation,
+        dissolution, liquidation ou radiation selon la situation.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3>Documents de clôture</h3>
+      <p>
+        Préparation des documents et formalités nécessaires à la
+        finalisation de la cessation d'activité.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+```
+
   </section>
 
-  <footer style="text-align: center; margin-top: 4em; font-size: 0.9em; color: #777;">
-    © 2026 Fortis Gestion • 
-    <a href="mentions-legales.html" style="color: #777;">Mentions légales</a> • 
-    <a href="politique-confidentialite.html" style="color: #777;">Politique de confidentialité</a>
+  <!-- MÉTHODE -->
+
+  <section class="process">
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Comment ça marche ?</h2>
+    <p>
+      Nous avançons étape par étape selon votre situation.
+    </p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">01</div>
+      <h3>Échange</h3>
+      <p>
+        Nous faisons le point sur votre projet, votre entreprise et votre
+        besoin.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <h3>Analyse</h3>
+      <p>
+        Nous identifions les démarches et documents nécessaires à votre
+        situation.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <h3>Préparation</h3>
+      <p>
+        Les documents et formalités sont préparés avec les informations
+        que vous nous communiquez.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">04</div>
+      <h3>Suivi</h3>
+      <p>
+        Nous vous accompagnons dans le suivi des démarches jusqu'à leur
+        finalisation selon la prestation choisie.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- TARIFS -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Nos offres</h2>
+    <p>
+      Des prestations accessibles, avec un tarif défini selon les
+      démarches nécessaires.
+    </p>
+  </div>
+
+  <div class="offers">
+
+    <div class="offer-card">
+
+      <h3>Création d'entreprise</h3>
+
+      <div class="price">À partir de 69 €</div>
+
+      <ul>
+        <li>✓ Analyse de votre besoin</li>
+        <li>✓ Préparation des formalités</li>
+        <li>✓ Accompagnement dans les démarches</li>
+        <li>✓ Suivi du dossier selon la prestation</li>
+      </ul>
+
+      <p>
+        Le tarif peut varier selon la forme juridique, les formalités
+        demandées et les prestations complémentaires nécessaires.
+      </p>
+
+      <a href="index.html#contact" class="btn btn-primary">
+        Créer mon entreprise
+      </a>
+
+    </div>
+
+
+    <div class="offer-card">
+
+      <h3>Clôture d'entreprise</h3>
+
+      <div class="price">Sur devis</div>
+
+      <ul>
+        <li>✓ Analyse de la situation</li>
+        <li>✓ Préparation des formalités</li>
+        <li>✓ Accompagnement dans les démarches</li>
+        <li>✓ Suivi du dossier selon la prestation</li>
+      </ul>
+
+      <p>
+        Le tarif dépend notamment de la forme juridique, de la situation
+        de l'entreprise et des démarches à effectuer.
+      </p>
+
+      <a href="index.html#contact" class="btn btn-primary">
+        Demander un devis
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- POUR QUI -->
+
+  <section class="target">
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Pour qui ?</h2>
+  </div>
+
+  <div class="target-box">
+
+    <p>
+      Cette prestation s'adresse notamment aux créateurs d'entreprise,
+      entrepreneurs individuels et dirigeants de petites structures qui
+      souhaitent être accompagnés dans leurs démarches administratives.
+    </p>
+
+    <p>
+      L'accompagnement peut concerner différentes formes d'entreprise,
+      sous réserve des formalités applicables à chaque situation.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FAQ -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Questions fréquentes</h2>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Quelles formes d'entreprise pouvez-vous accompagner ?
+      </button>
+      <div class="faq-answer">
+        Nous pouvons vous accompagner selon votre situation pour
+        différentes formes d'entreprise, notamment EI, micro-entreprise,
+        SASU ou SARL. Les démarches et documents varient selon la forme
+        choisie.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Pouvez-vous m'aider à choisir mon statut ?
+      </button>
+      <div class="faq-answer">
+        Nous pouvons vous présenter les principales caractéristiques des
+        statuts envisagés et vous aider à comparer les éléments liés à
+        votre projet. Pour les situations nécessitant un conseil
+        juridique ou fiscal spécifique, un professionnel spécialisé peut
+        être nécessaire.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Combien coûte une création d'entreprise ?
+      </button>
+      <div class="faq-answer">
+        Notre prestation de création est proposée à partir de 69 €.
+        Le montant final dépend des démarches et prestations demandées.
+        Les frais externes éventuels, comme certaines annonces légales
+        ou taxes, peuvent être facturés séparément.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Pouvez-vous également accompagner une cessation d'activité ?
+      </button>
+      <div class="faq-answer">
+        Oui. Nous pouvons vous accompagner dans les démarches de
+        cessation, dissolution, liquidation ou radiation selon la forme
+        juridique et la situation de votre entreprise.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="final-cta">
+
+```
+<h2>Vous avez un projet de création ou de cessation ?</h2>
+
+<p>
+  Présentez-nous votre situation et nous vous indiquerons les démarches
+  et l'accompagnement adaptés à votre besoin.
+</p>
+
+<a href="index.html#contact" class="btn">
+  Demander un devis
+</a>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Fortis Gestion •
+    <a href="mentions-legales.html">Mentions légales</a> •
+    <a href="politique-confidentialite.html">
+      Politique de confidentialité
+    </a>
   </footer>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach(function(button) {
+      button.addEventListener("click", function() {
+        const item = button.parentElement;
+        item.classList.toggle("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
