@@ -1,48 +1,771 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Business Plan & Prévisionnel | Fortis Gestion</title>
-  <meta name="description" content="Réalisez un business plan clair et un prévisionnel financier réaliste pour convaincre vos partenaires. Fortis Gestion vous accompagne pas à pas.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body style="font-family: Arial, sans-serif; padding: 2em; background-color: #f8f8f8; color: #2e3b4e;">
 
-  <header style="text-align: center; margin-bottom: 3em;">
-    <h1>Business Plan & Prévisionnel financier</h1>
-    <p>Valorisez votre projet et rassurez vos partenaires avec un dossier solide</p>
+  <title>Business Plan & Prévisionnel financier | Fortis Gestion</title>
+
+  <meta name="description" content="Structurez votre projet avec un business plan et un prévisionnel financier adaptés à votre activité. Fortis Gestion vous accompagne dans la préparation de votre dossier.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f1ec;
+      color: #3a2c24;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .service-hero {
+      background: #ffffff;
+      padding: 70px 20px 80px;
+      text-align: center;
+      border-bottom: 1px solid #eadfd5;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: #f1e8df;
+      color: #6a503a;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .service-hero h1 {
+      margin: 0 auto 18px;
+      max-width: 850px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: #5b452e;
+    }
+
+    .service-hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: 1.15rem;
+      color: #6a5a4e;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #6a503a;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #5b452e;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #6a503a;
+      color: #6a503a;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #6a503a;
+      color: #ffffff;
+    }
+
+    /* GENERAL */
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: #5b452e;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: #6d625b;
+    }
+
+    /* PRESENTATION */
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.08rem;
+    }
+
+    .intro strong {
+      color: #5b452e;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #eadfd5;
+      box-shadow: 0 5px 18px rgba(67, 48, 34, 0.06);
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      background: #f1e8df;
+      font-size: 1.3rem;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #5b452e;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #6d625b;
+      font-size: 0.95rem;
+    }
+
+    /* PROCESS */
+    .process {
+      background: #ffffff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 25px 18px;
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #6a503a;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      color: #5b452e;
+    }
+
+    .step p {
+      margin: 0;
+      color: #6d625b;
+      font-size: 0.93rem;
+    }
+
+    /* PRICE */
+    .price-section {
+      text-align: center;
+    }
+
+    .price-card {
+      max-width: 620px;
+      margin: auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 18px;
+      border: 2px solid #d9c8b8;
+      box-shadow: 0 8px 25px rgba(67, 48, 34, 0.08);
+    }
+
+    .price-card h3 {
+      margin: 0 0 10px;
+      color: #5b452e;
+      font-size: 1.4rem;
+    }
+
+    .price {
+      margin: 10px 0 20px;
+      color: #6a503a;
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+
+    .price-card ul {
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+    }
+
+    .price-card li {
+      margin: 10px 0;
+    }
+
+    /* TARGET */
+    .target {
+      background: #ffffff;
+    }
+
+    .target-box {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .target-box p {
+      color: #6d625b;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+      background: #ffffff;
+      border: 1px solid #eadfd5;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: #5b452e;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      color: #6d625b;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* CTA */
+    .final-cta {
+      padding: 75px 20px;
+      background: #6a503a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    .final-cta p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      opacity: 0.92;
+    }
+
+    .final-cta .btn {
+      background: #ffffff;
+      color: #5b452e;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 20px;
+      background: #5b452e;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-hero {
+        padding: 55px 20px 60px;
+      }
+
+      .service-hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card {
+        padding: 30px 22px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <header class="service-hero">
+    <div class="hero-label">Fortis Gestion</div>
+
+```
+<h1>Business Plan &amp; Prévisionnel financier</h1>
+
+<p>
+  Structurez votre projet et disposez d'un dossier clair pour présenter
+  votre activité à vos partenaires et financeurs.
+</p>
+
+<div class="hero-buttons">
+  <a href="index.html#contact" class="btn btn-primary">
+    Demander un devis
+  </a>
+
+  <a href="index.html#services" class="btn btn-secondary">
+    Retour aux services
+  </a>
+</div>
+```
+
   </header>
 
-  <section style="max-width: 800px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <h2>Un dossier clair, convaincant et réaliste</h2>
+  <!-- INTRODUCTION -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Un projet mérite des bases solides</h2>
+  </div>
+
+  <div class="intro">
     <p>
-      Le <strong>business plan</strong> est un document essentiel pour tout créateur d’entreprise. Il sert à structurer votre projet, à planifier vos ressources, et surtout à convaincre vos partenaires financiers (banques, investisseurs, etc.).
+      Le <strong>business plan</strong> permet de présenter votre projet,
+      votre modèle économique et vos besoins financiers de manière
+      structurée.
     </p>
 
-    <h3>Notre accompagnement :</h3>
-    <ul>
-      <li>✅ Analyse du projet, de l’offre et du marché</li>
-      <li>✅ Rédaction du business model (canvas, SWOT...)</li>
-      <li>✅ Construction d’un <strong>prévisionnel financier réaliste</strong> (bilan, compte de résultat, plan de trésorerie)</li>
-      <li>✅ Relecture ou amélioration d’un dossier existant</li>
-      <li>✅ Support à la présentation orale devant les financeurs</li>
-    </ul>
-
-    <h3>Des outils clairs, compréhensibles et convaincants</h3>
     <p>
-      Fortis Gestion s’assure que chaque chiffre soit expliqué, chaque hypothèse justifiée, et chaque objectif atteignable. Vous repartez avec un document structuré, prêt à être déposé à la banque ou présenté à vos partenaires.
+      Le prévisionnel financier permet quant à lui d'estimer les
+      principaux équilibres financiers de votre activité à partir des
+      hypothèses retenues pour votre projet.
     </p>
 
-    <a href="index.html#contact"
-       style="display:inline-block; margin-top: 2em; background-color: #0077cc; color: #fff; padding: 0.8em 1.5em; text-decoration: none; border-radius: 5px; font-weight: bold;">
-      Faire mon prévisionnel
-    </a>
+    <p>
+      Fortis Gestion vous accompagne dans la préparation et la
+      structuration de ces documents.
+    </p>
+  </div>
+
+</div>
+```
+
   </section>
 
-  <footer style="text-align: center; margin-top: 4em; font-size: 0.9em; color: #777;">
-    © 2026 Fortis Gestion • <a href="mentions-legales.html">Mentions légales</a> • <a href="politique-confidentialite.html">Politique de confidentialité</a>
+  <!-- CE QUI EST INCLUS -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Ce que nous pouvons préparer avec vous</h2>
+    <p>
+      Un accompagnement adapté aux caractéristiques de votre projet.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Analyse du projet</h3>
+      <p>
+        Compréhension de votre activité, de votre offre, de vos objectifs
+        et de votre modèle économique.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🧩</div>
+      <h3>Structure du business plan</h3>
+      <p>
+        Organisation des principales informations nécessaires à la
+        présentation de votre projet.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💶</div>
+      <h3>Prévisionnel financier</h3>
+      <p>
+        Élaboration des principaux tableaux financiers à partir des
+        hypothèses définies pour votre activité.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Plan de trésorerie</h3>
+      <p>
+        Présentation des encaissements et décaissements prévisionnels
+        afin de suivre les besoins de trésorerie.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🔎</div>
+      <h3>Relecture d'un dossier</h3>
+      <p>
+        Analyse et amélioration d'un business plan ou d'un prévisionnel
+        déjà réalisé.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <h3>Échanges et explications</h3>
+      <p>
+        Présentation des principaux éléments du dossier et réponses à vos
+        questions pour vous permettre de mieux le comprendre.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- MÉTHODE -->
+
+  <section class="process">
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Comment ça marche ?</h2>
+    <p>
+      Un accompagnement simple, étape par étape.
+    </p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">01</div>
+      <h3>Échange</h3>
+      <p>
+        Nous faisons le point sur votre projet et vos besoins.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <h3>Analyse</h3>
+      <p>
+        Nous réunissons les informations nécessaires à la préparation
+        du dossier.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <h3>Préparation</h3>
+      <p>
+        Les éléments du business plan et du prévisionnel sont structurés
+        selon les données communiquées.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">04</div>
+      <h3>Restitution</h3>
+      <p>
+        Vous disposez d'un dossier structuré et des explications
+        nécessaires à sa compréhension.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- TARIF -->
+
+  <section class="price-section">
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Notre tarif</h2>
+    <p>
+      Une offre simple pour vous aider à structurer votre projet.
+    </p>
+  </div>
+
+  <div class="price-card">
+
+    <h3>Business Plan &amp; Prévisionnel</h3>
+
+    <div class="price">À partir de 59 €</div>
+
+    <ul>
+      <li>✓ Analyse de votre projet</li>
+      <li>✓ Structuration du dossier</li>
+      <li>✓ Prévisionnel financier</li>
+      <li>✓ Plan de trésorerie</li>
+      <li>✓ Échanges et explications</li>
+    </ul>
+
+    <p>
+      Le tarif peut être adapté selon la nature du projet, les documents
+      à préparer et le niveau d'accompagnement souhaité.
+    </p>
+
+    <a href="index.html#contact" class="btn btn-primary">
+      Demander un devis
+    </a>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- POUR QUI -->
+
+  <section class="target">
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Pour quels projets ?</h2>
+  </div>
+
+  <div class="target-box">
+
+    <p>
+      Cette prestation peut notamment convenir aux créateurs
+      d'entreprise, entrepreneurs individuels, dirigeants de petites
+      entreprises ou porteurs de projets souhaitant formaliser leur
+      activité.
+    </p>
+
+    <p>
+      Elle peut également être utile pour actualiser un dossier existant
+      ou préparer une présentation financière dans le cadre d'un projet
+      de développement.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FAQ -->
+
+  <section>
+    <div class="container">
+
+```
+  <div class="section-title">
+    <h2>Questions fréquentes</h2>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Quelle est la différence entre un business plan et un prévisionnel ?
+      </button>
+      <div class="faq-answer">
+        Le business plan présente notamment le projet, son modèle
+        économique et son environnement. Le prévisionnel financier
+        présente les principales données financières projetées.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Dois-je déjà avoir toutes les informations de mon projet ?
+      </button>
+      <div class="faq-answer">
+        Plus les informations disponibles sont précises, plus le dossier
+        pourra être adapté à votre projet. Nous faisons le point ensemble
+        sur les éléments nécessaires avant la préparation.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Pouvez-vous travailler à partir d'un dossier existant ?
+      </button>
+      <div class="faq-answer">
+        Oui. Une relecture ou une amélioration d'un business plan ou d'un
+        prévisionnel existant peut être envisagée selon vos besoins.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Le dossier garantit-il l'obtention d'un financement ?
+      </button>
+      <div class="faq-answer">
+        Non. Le dossier permet de présenter votre projet et ses éléments
+        financiers de manière structurée, mais la décision de financement
+        appartient à chaque organisme ou partenaire.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="final-cta">
+
+```
+<h2>Vous avez un projet ?</h2>
+
+<p>
+  Parlons de votre activité et voyons ensemble quels documents sont
+  adaptés à votre besoin.
+</p>
+
+<a href="index.html#contact" class="btn">
+  Parlons de votre projet
+</a>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Fortis Gestion •
+    <a href="mentions-legales.html">Mentions légales</a> •
+    <a href="politique-confidentialite.html">
+      Politique de confidentialité
+    </a>
   </footer>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach(function(button) {
+      button.addEventListener("click", function() {
+        const item = button.parentElement;
+        item.classList.toggle("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
+
